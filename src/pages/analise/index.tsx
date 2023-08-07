@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import SendIcon from '@mui/icons-material/Send'
+import DownloadIcon from '@mui/icons-material/Download'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -12,9 +13,13 @@ import {
   InputLabel,
   SelectChangeEvent,
   Button,
+  Typography,
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg'
 import Discription from '../../components/discription/Discription'
+import ResultScreen from '../../components/resultScreen/ResultScreen'
+/* import { apiGradio } from '../../API/api'
+import axios from 'axios' */
 
 const theme = createTheme({
   palette: {
@@ -23,8 +28,9 @@ const theme = createTheme({
 })
 
 export default function Analise() {
-  const [metodo, setMetodo] = useState('')
+  const [modelo, setModelo] = useState('SE-RegUNet 4GF')
   const [isResetImg, setIsResetImg] = useState(false)
+  const [urlImgAnalise, setUrlImgAnalise] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -33,11 +39,38 @@ export default function Analise() {
     }
   }, [navigate])
 
-  const handleChangeMetodo = (e: SelectChangeEvent<string>) => {
-    setMetodo(e.target.value as string)
+  useEffect(() => {
+    setIsResetImg(false)
+  }, [modelo])
+
+  const handleChangeModelo = (e: SelectChangeEvent<string>) => {
+    setModelo(e.target.value as string)
   }
 
-  const metodosList = [
+  const handleSend = async () => {
+    console.log('enviarrrr' + modelo)
+    setIsResetImg(false)
+    const link =
+      'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/c3/33/97.jpg' // subistituir por logica para API retornar img da analise
+    setUrlImgAnalise(link)
+  }
+
+  const handleReset = async () => {
+    console.log('reset')
+    setIsResetImg(true)
+    setUrlImgAnalise('')
+  }
+
+  const handleDownload = async () => {
+    console.log('baixarrr' + ' ' + urlImgAnalise)
+    const downloadLink = document.createElement('a')
+
+    downloadLink.href = urlImgAnalise
+    downloadLink.download = 'image.png'
+    downloadLink.click()
+  }
+
+  const modelosList = [
     'SE-RegUNet 4GF',
     'SE-RegUNet 16GF',
     'AngioNet',
@@ -52,6 +85,7 @@ export default function Analise() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
           padding: '1.125rem',
           border: '0.0625rem solid red',
           width: '100%',
@@ -62,7 +96,7 @@ export default function Analise() {
         <Box
           sx={{
             display: 'flex',
-            padding: '1.125rem',
+            padding: '15px',
             border: '0.0625rem solid black',
             width: '95%',
             height: '62.5rem',
@@ -76,7 +110,7 @@ export default function Analise() {
               sx={{
                 display: 'flex',
                 alignItems: 'flex-end',
-                margin: 1,
+                margin: '.5rem',
                 justifyContent: 'space-between',
               }}
             >
@@ -87,18 +121,18 @@ export default function Analise() {
                   flexDirection: 'column',
                 }}
               >
-                Metodo:
+                Modelo:
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={metodo}
-                  label="metodo"
-                  onChange={handleChangeMetodo}
+                  value={modelo}
+                  label="modelo"
+                  onChange={handleChangeModelo}
                   sx={{ width: '12.5rem', height: '2.5rem' }}
                 >
-                  {metodosList.map((metodo, index) => (
-                    <MenuItem key={index} value={metodo}>
-                      {metodo}
+                  {modelosList.map((modelo, index) => (
+                    <MenuItem key={index} value={modelo}>
+                      {modelo}
                     </MenuItem>
                   ))}
                 </Select>
@@ -108,6 +142,7 @@ export default function Analise() {
                 size="large"
                 variant="contained"
                 endIcon={<SendIcon />}
+                onClick={handleSend}
                 sx={{ width: '9.375rem', height: '2.5rem' }}
               >
                 Enviar
@@ -116,7 +151,7 @@ export default function Analise() {
                 size="large"
                 variant="outlined"
                 endIcon={<RestartAltIcon />}
-                onClick={() => setIsResetImg(true)}
+                onClick={handleReset}
                 sx={{ width: '9.375rem', height: '2.5rem' }}
               >
                 Limpar
@@ -130,45 +165,27 @@ export default function Analise() {
               sx={{
                 display: 'flex',
                 alignItems: 'flex-end',
-                margin: 1,
+                marginTop: '1.875rem',
+                marginBottom: '.5rem',
                 justifyContent: 'space-between',
               }}
             >
-              <InputLabel
-                id="demo-simple-select-label"
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                Metodo:
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={metodo}
-                  label="metodo"
-                  onChange={handleChangeMetodo}
-                  sx={{ width: '12.5rem', height: '2.5rem' }}
-                >
-                  {metodosList.map((metodo, index) => (
-                    <MenuItem key={index} value={metodo}>
-                      {metodo}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </InputLabel>
+              <Typography variant="h6">Status:</Typography>
 
               <Button
                 size="large"
-                variant="contained"
-                endIcon={<SendIcon />}
-                sx={{ width: '12.5rem', height: '2.5rem' }}
+                variant="outlined"
+                endIcon={<DownloadIcon />}
+                onClick={handleDownload}
+                sx={{ width: '9.375rem', height: '2.5rem' }}
               >
-                Enviar
+                Baixar
               </Button>
-              {isResetImg && <h1>Reset</h1>}
             </Box>
-            <InputImg />
+            <ResultScreen
+              isResetImg={isResetImg}
+              urlImgAnalise={urlImgAnalise}
+            />
           </Box>
         </Box>
       </Box>
