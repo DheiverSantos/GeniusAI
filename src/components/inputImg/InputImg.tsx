@@ -1,8 +1,18 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
 import './InputImg.css'
 
-function InputImg() {
+interface InputImgProps {
+  isResetImg: boolean;
+}
+
+const InputImg: React.FC<InputImgProps> = ({ isResetImg }) => {
   const [imageSrc, setImageSrc] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (isResetImg) {
+      setImageSrc(null)
+    }
+  }, [isResetImg])
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0]
