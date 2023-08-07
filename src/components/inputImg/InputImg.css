@@ -3,8 +3,8 @@
 }
 
 .picture {
-  width: 50rem;
-  height: 42.5rem;
+  width: 37.5rem;
+  height: 38.75rem;
   background: #ddd;
   display: flex;
   align-items: center;
@@ -36,6 +36,9 @@
   box-shadow: 0 0 .625rem rgba(0, 0, 0, 0.3);
 }
 
-.picture__img {
+.picture__image {
   max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
+
