@@ -5,7 +5,7 @@ import Analise from './pages/analise'
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/GeniusAI_Front" element={<Login />} />
       <Route path="/analise" element={<Analise />} />
     </Routes>
   )
