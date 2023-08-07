@@ -1,6 +1,6 @@
 {
   "name": "genius-ai",
-  "homepage": "http://{luizfilipelgs}.github.io/{/GeniusAI_Front}"
+  "homepage": "http://{luizfilipelgs}.github.io/{/GeniusAI_Front}",
   "private": true,
   "version": "0.0.0",
   "type": "module",
