@@ -16,22 +16,22 @@ function Discription() {
           width: '95%',
         }}
       >
-        <Typography variant="h4" align="center" sx={{ mt: 3 }}>
+        <Typography variant="h4" align="center">
           Segmentação de Angiograma Coronariano
         </Typography>
-        <Typography variant="body1" align="left" sx={{ mt: 2 }}>
+        <Typography variant="body1" align="left" sx={{ mt: '1rem' }}>
           Esta aplicação segmenta angiogramas coronarianos usando modelos de
           segmentação pré-treinados. Faça o upload de uma imagem de angiograma e
           selecione um modelo para visualizar o resultado da segmentação.
         </Typography>
-        <Typography variant="body1" align="left" sx={{ mt: 2 }}>
+        <Typography variant="body1" align="left" sx={{ mt: '.625rem' }}>
           Selecione uma imagem de angiograma coronariano e um modelo de
           segmentação no painel à esquerda.
         </Typography>
-        <Typography variant="body1" align="left" sx={{ mt: 2 }}>
+        <Typography variant="body1" align="left" sx={{ mt: '.625rem' }}>
           Status da Doença:
         </Typography>
-        <Typography variant="body1" align="left" sx={{ mt: 1 }}>
+        <Typography variant="body1" align="left" sx={{ mt: '.3125rem' }}>
           - True: Indica que a segmentação detectou uma área significativa de
           estenose.
         </Typography>
