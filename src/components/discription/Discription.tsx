@@ -11,9 +11,12 @@ function Discription() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          border: '0.0625rem solid green',
-          padding: '1.125rem',
+          border: '0.0625rem solid #0140A9',
+          padding: '2rem',
+          margin: '1rem',
           width: '95%',
+          borderRadius: '.625rem',
+          boxShadow: '0.3125rem 0.3125rem 1rem rgba(0, 0, 0, 0.3)',
         }}
       >
         <Typography variant="h4" align="center">

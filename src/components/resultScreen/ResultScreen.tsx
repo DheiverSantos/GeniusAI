@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './resultScreen.css'
 
 interface ResultScreenProps {
   isResetImg: boolean
@@ -28,17 +29,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
   }
 
   return (
-    <div
-      style={{
-        width: '37.5rem',
-        height: '38.75rem',
-        border: '2px dashed blue',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden',
-      }}
-    >
+    <div className="box-result">
       <img
         src={isResetImg ? '' : urlImg}
         alt=""

@@ -2,10 +2,10 @@ import { useState, ChangeEvent, useEffect } from 'react'
 import './InputImg.css'
 
 interface InputImgProps {
-  isResetImg: boolean;
+  isResetImg: boolean
 }
 
-const InputImg: React.FC<InputImgProps> = ({ isResetImg }) => {
+const InputImg: React.FC<InputImgProps> = ({ isResetImg, onImageSelect }) => {
   const [imageSrc, setImageSrc] = useState<string | null>(null)
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const InputImg: React.FC<InputImgProps> = ({ isResetImg }) => {
       const reader = new FileReader()
       reader.onloadend = () => {
         setImageSrc(reader.result as string)
+        onImageSelect(file)
       }
       reader.readAsDataURL(file)
     } else {

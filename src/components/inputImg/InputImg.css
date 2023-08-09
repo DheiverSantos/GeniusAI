@@ -4,13 +4,16 @@
 
 .picture {
   width: 37.5rem;
-  height: 38.75rem;
-  background: #ddd;
+  height: 37.5rem;
+  margin-top: 1rem;
+  background: #e0f7fa;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aaa;
-  border: 2px dashed blue;
+  color: #0140A9;
+  border: 1px solid #0140A9;
+  border-radius: .625rem;
+  box-shadow: 0.3125rem 0.3125rem 1rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
   font-family: sans-serif;
   transition: color 300ms ease-in-out, background 300ms ease-in-out;
@@ -18,11 +21,11 @@
   overflow: hidden;
 }
 
-
 .picture:hover {
-  color: #777;
-  background: #ccc;
+  color: #0140A9; /* Azul mais escuro para o texto */
+  background: #D3EEFF; /* Azul muito claro para o fundo */
 }
+
 
 .picture:active {
   border-color: turquoise;
