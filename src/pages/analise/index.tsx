@@ -17,8 +17,7 @@ import {
 import InputImg from '../../components/inputImg/InputImg'
 import Discription from '../../components/discription/Discription'
 import ResultScreen from '../../components/resultScreen/ResultScreen'
-/* 
-import getAnaliseApi from '../../API' */
+import getAnaliseApi from '../../API'
 
 const theme = createTheme({
   palette: {
@@ -48,7 +47,8 @@ export default function Analise() {
   }
 
   const handleSend = async () => {
-    console.log(selectedImage + modelo)
+    const response = getAnaliseApi()
+    console.log(response)
     setIsResetImg(false)
 
     /*  if (selectedImage) {

@@ -1,10 +1,11 @@
 import { client } from '@gradio/client'
 
-async function getAnaliseApi(imgBlob, modelo) {
-  /* const response_0 = await fetch(
+async function getAnaliseApi() {
+  const response_0 = await fetch(
     'https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png',
   )
-  const exampleImage = await response_0.blob() */
+  const imgBlob = await response_0.blob()
+  const modelo = 'SE-RegUNet 4GF'
 
   try {
     const app = await client(
