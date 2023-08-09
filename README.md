@@ -1,6 +1,6 @@
-# Genius AI
-
-![Logo do Produto](src/assets/logo.png)
+<p align="center">
+  <img src="src/assets/logo.png" alt="Logo do Produto">
+</p>
 
 ## Descrição
 
