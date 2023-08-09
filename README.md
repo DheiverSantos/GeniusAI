@@ -21,13 +21,13 @@ A aplicação envolve:
 - **Dheiver dos Santos**
   - [LinkedIn](https://www.linkedin.com/in/dheiver-santos/)
   - [GitHub](https://github.com/dheiver)
-  - **Contribuição**: Desenvolvedor da inteligência artificial.
+  - Desenvolvedor da inteligência artificial.
 
 ### Contribuidor:
 - **Luiz Filipe de Lima**
   - [LinkedIn](https://www.linkedin.com/in/luizfilipelgs/)
   - [GitHub](https://github.com/luizfilipelgs)
-  - **Contribuição**: Desenvolvedor do front-end.
+  - Desenvolvedor do front-end.
 
 ## Como Rodar o Projeto
 
@@ -52,7 +52,7 @@ Em Seguida rode o comando abaixo para inicializar a aplicação:
 npm run dev
 ```
 
-## Acesso Local
+### Acesso Local
 
 Após iniciar o projeto localmente através do script de desenvolvimento, você pode acessar a aplicação em:
 
