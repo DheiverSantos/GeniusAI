@@ -3,6 +3,7 @@ import './InputImg.css'
 
 interface InputImgProps {
   isResetImg: boolean
+  onImageSelect: (file: File) => void
 }
 
 const InputImg: React.FC<InputImgProps> = ({ isResetImg, onImageSelect }) => {

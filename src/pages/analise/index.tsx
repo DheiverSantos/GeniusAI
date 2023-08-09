@@ -10,7 +10,6 @@ import {
   Box,
   Select,
   MenuItem,
-  InputLabel,
   SelectChangeEvent,
   Button,
   Typography,
@@ -18,8 +17,8 @@ import {
 import InputImg from '../../components/inputImg/InputImg'
 import Discription from '../../components/discription/Discription'
 import ResultScreen from '../../components/resultScreen/ResultScreen'
-/* import { apiGradio } from '../../API/api'
-import axios from 'axios' */
+/* 
+import getAnaliseApi from '../../API' */
 
 const theme = createTheme({
   palette: {
@@ -31,6 +30,7 @@ export default function Analise() {
   const [modelo, setModelo] = useState('SE-RegUNet 4GF')
   const [isResetImg, setIsResetImg] = useState(false)
   const [urlImgAnalise, setUrlImgAnalise] = useState('')
+  const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -48,17 +48,24 @@ export default function Analise() {
   }
 
   const handleSend = async () => {
-    console.log('enviarrrr' + modelo)
+    console.log(selectedImage + modelo)
     setIsResetImg(false)
-    const link =
-      'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/c3/33/97.jpg' // subistituir por logica para API retornar img da analise
-    setUrlImgAnalise(link)
+
+    /*  if (selectedImage) {
+      // Verifica se selectedImage não é null
+      const result = await getAnaliseApi(selectedImage, modelo)
+      console.log(result)
+    } */
   }
 
   const handleReset = async () => {
     console.log('reset')
     setIsResetImg(true)
     setUrlImgAnalise('')
+  }
+
+  const handleImageSelect = (image: Blob) => {
+    setSelectedImage(image)
   }
 
   const handleDownload = async () => {
@@ -87,7 +94,7 @@ export default function Analise() {
           flexDirection: 'column',
           alignItems: 'center',
           padding: '1.125rem',
-          border: '0.0625rem solid red',
+          // border: '0.0625rem solid red',
           width: '100%',
           height: '100%',
         }}
@@ -97,7 +104,7 @@ export default function Analise() {
           sx={{
             display: 'flex',
             padding: '15px',
-            border: '0.0625rem solid black',
+            // border: '0.0625rem solid black',
             width: '95%',
             height: '62.5rem',
             justifyContent: 'space-evenly',
@@ -114,11 +121,11 @@ export default function Analise() {
                 justifyContent: 'space-between',
               }}
             >
-              <InputLabel
-                id="demo-simple-select-label"
+              <Typography
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
+                  color: '#1976d2',
                 }}
               >
                 Modelo:
@@ -126,17 +133,20 @@ export default function Analise() {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={modelo}
-                  label="modelo"
                   onChange={handleChangeModelo}
-                  sx={{ width: '12.5rem', height: '2.5rem' }}
+                  sx={{ width: '12.5rem', height: '2.5rem', color: '#1976d2' }}
                 >
                   {modelosList.map((modelo, index) => (
-                    <MenuItem key={index} value={modelo}>
+                    <MenuItem
+                      key={index}
+                      value={modelo}
+                      sx={{ color: '#1976d2' }}
+                    >
                       {modelo}
                     </MenuItem>
                   ))}
                 </Select>
-              </InputLabel>
+              </Typography>
 
               <Button
                 size="large"
@@ -157,7 +167,10 @@ export default function Analise() {
                 Limpar
               </Button>
             </Box>
-            <InputImg isResetImg={isResetImg} />
+            <InputImg
+              isResetImg={isResetImg}
+              onImageSelect={handleImageSelect}
+            />
           </Box>
           <Box>
             {/* Side rigth */}
