@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/logo.png" alt="Logo do Produto">
+  <img src="src/assets/logo.png" alt="Logo do Produto" width="200">
 </p>
 
 ## Descrição
@@ -14,6 +14,10 @@ A aplicação envolve:
 🏆 **Conquista**: Genius AI conquistou o 2º lugar em [NOME DO EVENTO].
 
 🔗 **API**: Para mais informações sobre a API deste projeto, acesse [aqui](https://github.com/dheiver/api_genius/tree/main).
+
+## Testes Online
+
+Para testar a aplicação online, acesse: [GeniusAI_Front](https://luizfilipelgs.github.io/GeniusAI_Front/).
 
 ## Autores e Contribuidores
 
@@ -37,6 +41,21 @@ Certifique-se de ter instalado:
 
 - Node.js (recomendado v14+)
 - npm (v7+)
+- Git
+
+### Clonar o Repositório
+
+Antes de começar, certifique-se de clonar o repositório do projeto para sua máquina local:
+
+```bash
+git clone git@github.com:luizfilipelgs/GeniusAI_Front.git
+```
+
+Após concluir a clonagem, navegue até a pasta do projeto:
+
+```bash
+cd GeniusAI_Front
+```
 
 ### Dependências
 
