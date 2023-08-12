@@ -3,10 +3,13 @@ import './InputImg.css'
 
 interface InputImgProps {
   isResetImg: boolean
-  onImageSelect: (file: File) => void
+  setSelectedImage: (blob: Blob) => void
 }
 
-const InputImg: React.FC<InputImgProps> = ({ isResetImg, onImageSelect }) => {
+const InputImg: React.FC<InputImgProps> = ({
+  isResetImg,
+  setSelectedImage,
+}) => {
   const [imageSrc, setImageSrc] = useState<string | null>(null)
 
   useEffect(() => {
@@ -15,15 +18,22 @@ const InputImg: React.FC<InputImgProps> = ({ isResetImg, onImageSelect }) => {
     }
   }, [isResetImg])
 
+  const loadImage = (file: File) => {
+    const reader = new FileReader()
+    reader.onloadend = async () => {
+      setImageSrc(reader.result as string)
+
+      const response = await fetch(reader.result as string)
+      const blob = await response.blob()
+      setSelectedImage(blob)
+    }
+    reader.readAsDataURL(file)
+  }
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0]
     if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setImageSrc(reader.result as string)
-        onImageSelect(file)
-      }
-      reader.readAsDataURL(file)
+      loadImage(file)
     } else {
       setImageSrc(null)
     }
@@ -33,11 +43,7 @@ const InputImg: React.FC<InputImgProps> = ({ isResetImg, onImageSelect }) => {
     event.preventDefault()
     const file = event.dataTransfer.files[0]
     if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setImageSrc(reader.result as string)
-      }
-      reader.readAsDataURL(file)
+      loadImage(file)
     }
   }
 

@@ -25,11 +25,16 @@ const theme = createTheme({
   },
 })
 
+type AnaliseType =
+  | [{ label: string }, string, { label: string }, { label: string }]
+  | []
+
 export default function Analise() {
   const [modelo, setModelo] = useState('SE-RegUNet 4GF')
   const [isResetImg, setIsResetImg] = useState(false)
-  const [urlImgAnalise, setUrlImgAnalise] = useState('')
+  const [analise, setAnalise] = useState<AnaliseType>([])
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
+  const [isSend, setIsSend] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -47,35 +52,37 @@ export default function Analise() {
   }
 
   const handleSend = async () => {
-    const response = getAnaliseApi()
-    console.log(response)
+    console.log('Send start')
     setIsResetImg(false)
+    setIsSend(true)
 
-    /*  if (selectedImage) {
-      // Verifica se selectedImage não é null
+    if (selectedImage) {
       const result = await getAnaliseApi(selectedImage, modelo)
-      console.log(result)
-    } */
+      console.log('Received result:', result)
+      setAnalise(result)
+      console.log('Set result to state')
+    }
+
+    setIsSend(false)
+    console.log('Send end')
+    setSelectedImage(null)
   }
 
   const handleReset = async () => {
     console.log('reset')
     setIsResetImg(true)
-    setUrlImgAnalise('')
+    setAnalise([])
+    setIsSend(false)
   }
 
-  const handleImageSelect = (image: Blob) => {
-    setSelectedImage(image)
-  }
-
-  const handleDownload = async () => {
-    console.log('baixarrr' + ' ' + urlImgAnalise)
+  /* const handleDownload = async () => {
+    // console.log('baixarrr' + ' ' + urlImgAnalise)
     const downloadLink = document.createElement('a')
 
-    downloadLink.href = urlImgAnalise
+    downloadLink.href = analise?[1]
     downloadLink.download = 'image.png'
     downloadLink.click()
-  }
+  } */
 
   const modelosList = [
     'SE-RegUNet 4GF',
@@ -169,7 +176,7 @@ export default function Analise() {
             </Box>
             <InputImg
               isResetImg={isResetImg}
-              onImageSelect={handleImageSelect}
+              setSelectedImage={setSelectedImage}
             />
           </Box>
           <Box>
@@ -178,18 +185,19 @@ export default function Analise() {
               sx={{
                 display: 'flex',
                 alignItems: 'flex-end',
-                marginTop: '1.875rem',
-                marginBottom: '.5rem',
+                margin: '1.875rem 0.5rem 0.5rem',
                 justifyContent: 'space-between',
               }}
             >
-              <Typography variant="h6">Status:</Typography>
+              <Typography variant="h6">{`Possui Doença: ${
+                analise?.[2]?.label ?? ''
+              }`}</Typography>
 
               <Button
                 size="large"
                 variant="outlined"
                 endIcon={<DownloadIcon />}
-                onClick={handleDownload}
+                onClick={() => console.log('baixar')}
                 sx={{ width: '9.375rem', height: '2.5rem' }}
               >
                 Baixar
@@ -197,7 +205,8 @@ export default function Analise() {
             </Box>
             <ResultScreen
               isResetImg={isResetImg}
-              urlImgAnalise={urlImgAnalise}
+              urlImgAnalise={analise[1] ?? ''}
+              isSend={isSend}
             />
           </Box>
         </Box>
