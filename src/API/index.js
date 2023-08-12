@@ -1,20 +1,20 @@
 import { client } from '@gradio/client'
 
-async function getAnaliseApi() {
-  const response_0 = await fetch(
+async function getAnaliseApi(imgBlob, modelo) {
+  /* const response_0 = await fetch(
     'https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png',
   )
   const imgBlob = await response_0.blob()
-  const modelo = 'SE-RegUNet 4GF'
+  const modelo = 'SE-RegUNet 4GF' */
 
   try {
     const app = await client(
       'https://dheiver-segmento-de-angio-coronariana-v3.hf.space/',
     )
     const result = await app.predict('/predict', [imgBlob, modelo])
-    console.log(result?.data[3])
+    return result.data
   } catch (error) {
-    console.error('An error occurred:', error)
+    console.error('Erro na Requisição:', error)
     throw error
   }
 }
