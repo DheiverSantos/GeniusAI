@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { validateLogin } from '../../auth/users'
 import logo from '../../assets/logo.png'
 import { useState, ChangeEvent, FormEvent } from 'react'
@@ -11,6 +11,7 @@ import {
   TextField,
   ThemeProvider,
   createTheme,
+  Link as MuiLink,
 } from '@mui/material'
 import { isLoginFormValid, isValidEmail } from '../../utils/validateFormLogin'
 
@@ -58,7 +59,7 @@ export default function Login() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: '1.25rem',
+            marginTop: '-1.25rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -71,7 +72,7 @@ export default function Login() {
             onSubmit={handleSubmit}
             noValidate
             sx={{
-              mt: 1,
+              marginTop: '-4rem',
               mx: { xs: 6, sm: 2, md: 1 },
             }}
           >
@@ -104,11 +105,16 @@ export default function Login() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: '1rem', mb: '1rem' }}
               disabled={!isLoginFormValid(email, password)}
             >
               Entrar
             </Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
+              <MuiLink href="https://geniusai.art.br/" underline="hover">
+                {'Cadastre-se'}
+              </MuiLink>
+            </Box>
             {!isAuth && loginAttempted && (
               <Alert
                 sx={{
