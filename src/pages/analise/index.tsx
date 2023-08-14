@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import SendIcon from '@mui/icons-material/Send'
 import DownloadIcon from '@mui/icons-material/Download'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
@@ -37,6 +37,7 @@ export default function Analise() {
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
   const [isSend, setIsSend] = useState(false)
   const navigate = useNavigate()
+  const downloadRef = useRef<HTMLAnchorElement>(null)
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') !== 'true') {
@@ -76,14 +77,21 @@ export default function Analise() {
     setIsSend(false)
   }
 
-  /* const handleDownload = async () => {
-    // console.log('baixarrr' + ' ' + urlImgAnalise)
-    const downloadLink = document.createElement('a')
-
-    downloadLink.href = analise?[1]
-    downloadLink.download = 'image.png'
-    downloadLink.click()
-  } */
+  const handleDownload = () => {
+    if (downloadRef.current && analise[1]) {
+      // Checando se analise[1] é um Blob (por simplicidade, checaremos se é um objeto)
+      if (typeof analise[1] === 'object') {
+        const objectURL = URL.createObjectURL(analise[1])
+        downloadRef.current.href = objectURL
+        downloadRef.current.click()
+        URL.revokeObjectURL(objectURL) // Limpeza para liberar memória
+      } else {
+        // Caso contrário, é uma string de URL
+        downloadRef.current.href = analise[1]
+        downloadRef.current.click()
+      }
+    }
+  }
 
   const modelosList = [
     'SE-RegUNet 4GF',
@@ -96,6 +104,11 @@ export default function Analise() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <a
+        ref={downloadRef}
+        style={{ display: 'none' }}
+        download="result_image.jpg"
+      ></a>
       <Box
         sx={{
           display: 'flex',
@@ -198,7 +211,7 @@ export default function Analise() {
                 size="large"
                 variant="outlined"
                 endIcon={<DownloadIcon />}
-                onClick={() => console.log('baixar')}
+                onClick={handleDownload}
                 sx={{ width: '9.375rem', height: '2.5rem' }}
               >
                 Baixar
