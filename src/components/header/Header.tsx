@@ -37,7 +37,15 @@ function Header() {
         <Typography variant="h5" align="center" sx={{ color: '#001BA1' }}>
           Segmentação de Angiograma Coronariano
         </Typography>
-        <Button variant="contained">Contato</Button>
+        <Button
+          variant="contained"
+          component="a"
+          href="https://api.whatsapp.com/send?phone=+5551989889898&text=OLA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contato
+        </Button>
       </Box>
     </ThemeProvider>
   )
