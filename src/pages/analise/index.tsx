@@ -15,9 +15,10 @@ import {
   Typography,
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg'
-import Discription from '../../components/discription/Discription'
 import ResultScreen from '../../components/resultScreen/ResultScreen'
 import getAnaliseApi from '../../API'
+import Header from '../../components/header/Header'
+import Intro from '../../components/Intro'
 
 const theme = createTheme({
   palette: {
@@ -52,24 +53,24 @@ export default function Analise() {
   }
 
   const handleSend = async () => {
-    console.log('Send start')
+    // console.log('Send start')
     setIsResetImg(false)
     setIsSend(true)
 
     if (selectedImage) {
       const result = await getAnaliseApi(selectedImage, modelo)
-      console.log('Received result:', result)
+      // console.log('Received result:', result)
       setAnalise(result)
-      console.log('Set result to state')
+      // console.log('Set result to state')
     }
 
     setIsSend(false)
-    console.log('Send end')
+    // console.log('Send end')
     setSelectedImage(null)
   }
 
   const handleReset = async () => {
-    console.log('reset')
+    // console.log('reset')
     setIsResetImg(true)
     setAnalise([])
     setIsSend(false)
@@ -100,20 +101,19 @@ export default function Analise() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '1.125rem',
-          // border: '0.0625rem solid red',
           width: '100%',
           height: '100%',
         }}
       >
-        <Discription />
+        <Header />
+        <Intro />
         <Box
           sx={{
             display: 'flex',
             padding: '15px',
             // border: '0.0625rem solid black',
             width: '95%',
-            height: '62.5rem',
+            height: '45rem',
             justifyContent: 'space-evenly',
             gap: '0.625rem',
           }}
@@ -132,7 +132,7 @@ export default function Analise() {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  color: '#1976d2',
+                  color: '#001BA1',
                 }}
               >
                 Modelo:
@@ -141,13 +141,13 @@ export default function Analise() {
                   id="demo-simple-select"
                   value={modelo}
                   onChange={handleChangeModelo}
-                  sx={{ width: '12.5rem', height: '2.5rem', color: '#1976d2' }}
+                  sx={{ width: '12.5rem', height: '2.5rem', color: '#001BA1' }}
                 >
                   {modelosList.map((modelo, index) => (
                     <MenuItem
                       key={index}
                       value={modelo}
-                      sx={{ color: '#1976d2' }}
+                      sx={{ color: '#001BA1' }}
                     >
                       {modelo}
                     </MenuItem>
@@ -189,9 +189,10 @@ export default function Analise() {
                 justifyContent: 'space-between',
               }}
             >
-              <Typography variant="h6">{`Possui Doença: ${
-                analise?.[2]?.label ?? ''
-              }`}</Typography>
+              <Typography
+                variant="h6"
+                sx={{ color: '#001BA1' }}
+              >{`Possui Doença: ${analise?.[2]?.label ?? ''}`}</Typography>
 
               <Button
                 size="large"
@@ -210,6 +211,9 @@ export default function Analise() {
             />
           </Box>
         </Box>
+        <Typography variant="h5" sx={{ mb: '2rem' }}>
+          {analise[3]?.label}
+        </Typography>
       </Box>
     </ThemeProvider>
   )
