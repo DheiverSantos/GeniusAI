@@ -19,7 +19,7 @@ async function getAnaliseApi(
 ): Promise<AnaliseType> {
   try {
     const app = await client(
-      'https://dheiver-segmento-de-angio-coronariana-v3.hf.space/',
+      'https://dheiver-segmento-de-angio-coronariana-v4.hf.space/',
     )
     const result = (await app.predict('/predict', [
       imgBlob,
