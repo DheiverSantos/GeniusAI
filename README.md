@@ -29,7 +29,7 @@ A aplicação envolve:
 - **Luiz Filipe de Lima**
   - [LinkedIn](https://www.linkedin.com/in/luizfilipelgs/)
   - [GitHub](https://github.com/luizfilipelgs)
-  - Desenvolvedor do front-end.
+  - Engenheiro de Software.
 
 ## Como Rodar o Projeto
 
@@ -46,7 +46,7 @@ Certifique-se de ter instalado:
 Antes de começar, certifique-se de clonar o repositório do projeto para sua máquina local:
 
 ```bash
-git clone git@github.com:luizfilipelgs/GeniusAI_Front.git
+git clone git@github.com:DheiverSantos/GeniusAI.git
 ```
 
 Após concluir a clonagem, navegue até a pasta do projeto:
