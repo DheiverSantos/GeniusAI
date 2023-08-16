@@ -19,13 +19,13 @@ async function getAnaliseApi(
 ): Promise<AnaliseType> {
   try {
     const app = await client(
-      'https://dheiver-segmento-de-angio-coronariana-v4.hf.space/',
+      'https://dheiver-segmento-de-angio-coronariana-v5.hf.space/',
     )
     const result = (await app.predict('/predict', [
       imgBlob,
       modelo,
     ])) as ApiResponse
-    console.log(result.data)
+    // console.log(result.data)
     return result.data
   } catch (error) {
     console.error('Erro na Requisição:', error)
