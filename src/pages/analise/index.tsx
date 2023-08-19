@@ -101,6 +101,7 @@ export default function Analise() {
     'Reg-SA-UNet++',
     'UNet3+',
   ]
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -154,13 +155,18 @@ export default function Analise() {
                   id="demo-simple-select"
                   value={modelo}
                   onChange={handleChangeModelo}
-                  sx={{ width: '12.5rem', height: '2.5rem', color: '#001BA1' }}
+                  sx={{
+                    width: '10rem',
+                    height: '2.5rem',
+                    color: '#001BA1',
+                    fontSize: '12px',
+                  }}
                 >
                   {modelosList.map((modelo, index) => (
                     <MenuItem
                       key={index}
                       value={modelo}
-                      sx={{ color: '#001BA1' }}
+                      sx={{ color: '#001BA1', fontSize: '12px' }}
                     >
                       {modelo}
                     </MenuItem>
@@ -173,7 +179,7 @@ export default function Analise() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 onClick={handleSend}
-                sx={{ width: '9.375rem', height: '2.5rem' }}
+                sx={{ width: '7.5rem', height: '2.5rem' }}
               >
                 Enviar
               </Button>
@@ -182,7 +188,7 @@ export default function Analise() {
                 variant="outlined"
                 endIcon={<RestartAltIcon />}
                 onClick={handleReset}
-                sx={{ width: '9.375rem', height: '2.5rem' }}
+                sx={{ width: '7.5rem', height: '2.5rem' }}
               >
                 Limpar
               </Button>
@@ -212,7 +218,7 @@ export default function Analise() {
                 variant="outlined"
                 endIcon={<DownloadIcon />}
                 onClick={handleDownload}
-                sx={{ width: '9.375rem', height: '2.5rem' }}
+                sx={{ width: '7.5rem', height: '2.5rem' }}
               >
                 Baixar
               </Button>
