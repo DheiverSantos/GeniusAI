@@ -3,7 +3,7 @@ interface LabelData {
   label: string
 }
 
-type AnaliseType = [LabelData, string, LabelData, LabelData]
+type AnaliseType = [LabelData, string, LabelData, LabelData, LabelData]
 
 interface ApiResponse {
   type: string
@@ -24,8 +24,10 @@ async function getAnaliseApi(
     const result = (await app.predict('/predict', [
       imgBlob,
       modelo,
+      true,
     ])) as ApiResponse
     // console.log(result.data)
+    console.log(result.data)
     return result.data
   } catch (error) {
     console.error('Erro na Requisição:', error)
