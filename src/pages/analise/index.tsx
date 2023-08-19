@@ -27,7 +27,13 @@ const theme = createTheme({
 })
 
 type AnaliseType =
-  | [{ label: string }, string, { label: string }, { label: string }]
+  | [
+      { label: string },
+      string,
+      { label: string },
+      { label: string },
+      { label: string },
+    ]
   | []
 
 export default function Analise() {
