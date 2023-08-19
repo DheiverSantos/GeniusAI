@@ -11,11 +11,9 @@ A aplicação envolve:
 2. Segmentação baseada em redes neurais para identificar regiões relevantes, tais como potenciais anomalias nos vasos sanguíneos.
 3. Uso do algoritmo K-means para conduzir uma análise de agrupamento, visando detectar características que indiquem a presença de condições patológicas.
 
-🏆 **Conquista**: Genius AI conquistou o 2º lugar em [NOME DO EVENTO].
-
 🔗 **API**: Para mais informações sobre a API deste projeto, acesse [aqui](https://github.com/dheiver/api_genius/tree/main).
 
-🔗 **Deploy**: Para testar a aplicação onlineo, acesse [aqui](https://luizfilipelgs.github.io/GeniusAI_Front/).
+🔗 **Deploy**: Para testar a aplicação onlineo, acesse [https://www.genius-ai.app.br/](https://www.genius-ai.app.br/).
 
 ## Autores e Contribuidores
 
