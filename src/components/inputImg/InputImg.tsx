@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import './InputImg.css'
+import { Box } from '@mui/material'
 
 interface InputImgProps {
   isResetImg: boolean
@@ -52,7 +53,7 @@ const InputImg: React.FC<InputImgProps> = ({
   }
 
   return (
-    <div onDrop={handleDrop} onDragOver={preventDragHandler}>
+    <Box onDrop={handleDrop} onDragOver={preventDragHandler}>
       <label className="picture" htmlFor="picture__input" tabIndex={0}>
         {imageSrc ? (
           <img src={imageSrc} alt="preview" className="picture__image" />
@@ -69,7 +70,7 @@ const InputImg: React.FC<InputImgProps> = ({
         onChange={handleInputChange}
         accept="image/*"
       />
-    </div>
+    </Box>
   )
 }
 

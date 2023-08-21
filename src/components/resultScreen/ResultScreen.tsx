@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './resultScreen.css'
-import { CircularProgress } from '@mui/material'
+import { Box, CircularProgress } from '@mui/material'
 
 interface ResultScreenProps {
   isResetImg: boolean
@@ -32,11 +32,11 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
   }
 
   return (
-    <div className="box-result">
+    <Box className="box-result">
       {isSend && (!urlImgAnalise || urlImgAnalise === '') ? (
-        <div className="spinner-container">
+        <Box className="spinner-container">
           <CircularProgress />
-        </div>
+        </Box>
       ) : (
         <img
           src={isResetImg ? '' : urlImg}
@@ -50,7 +50,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
           onLoad={handleImageLoad}
         />
       )}
-    </div>
+    </Box>
   )
 }
 
