@@ -1,0 +1,16 @@
+.box-explication {
+  width: 31.25rem;
+  height: 5rem;
+  margin-top: 1rem;
+  border: 0.0625rem solid #001BA1;
+  border-radius: 0.625rem;
+  box-shadow: 0.3125rem 0.3125rem 1rem rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-text {
+  color: #a9a9a9;
+  font-weight: normal;
+}

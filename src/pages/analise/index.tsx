@@ -19,6 +19,7 @@ import ResultScreen from '../../components/resultScreen/ResultScreen'
 import getAnaliseApi from '../../API'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
+import Explication from '../../components/explication/explication'
 
 const theme = createTheme({
   palette: {
@@ -215,7 +216,7 @@ export default function Analise() {
               }}
             >
               <Typography
-                variant="h6"
+                variant="body1"
                 sx={{ color: '#001BA1' }}
               >{`Possui Doença: ${analise?.[2]?.label ?? ''}`}</Typography>
 
@@ -234,11 +235,9 @@ export default function Analise() {
               urlImgAnalise={analise[1] ?? ''}
               isSend={isSend}
             />
+            <Explication explicationAnalise={analise[3]?.label || ''} />
           </Box>
         </Box>
-        <Typography variant="h5" sx={{ mb: '2rem' }}>
-          {analise[3]?.label}
-        </Typography>
       </Box>
     </ThemeProvider>
   )
