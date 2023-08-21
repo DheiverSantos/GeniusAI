@@ -19,7 +19,7 @@ import ResultScreen from '../../components/resultScreen/ResultScreen'
 import getAnaliseApi from '../../API'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
-import Explication from '../../components/explication/explication'
+import Explication from '../../components/explication/Explication'
 
 const theme = createTheme({
   palette: {
