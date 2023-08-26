@@ -61,24 +61,19 @@ export default function Analise() {
   }
 
   const handleSend = async () => {
-    // console.log('Send start')
     setIsResetImg(false)
     setIsSend(true)
 
     if (selectedImage) {
       const result = await getAnaliseApi(selectedImage, modelo)
-      // console.log('Received result:', result)
       setAnalise(result)
-      // console.log('Set result to state')
     }
 
     setIsSend(false)
-    // console.log('Send end')
     setSelectedImage(null)
   }
 
   const handleReset = async () => {
-    // console.log('reset')
     setIsResetImg(true)
     setAnalise([])
     setIsSend(false)
@@ -86,14 +81,12 @@ export default function Analise() {
 
   const handleDownload = () => {
     if (downloadRef.current && analise[1]) {
-      // Checando se analise[1] é um Blob (por simplicidade, checaremos se é um objeto)
       if (typeof analise[1] === 'object') {
         const objectURL = URL.createObjectURL(analise[1])
         downloadRef.current.href = objectURL
         downloadRef.current.click()
         URL.revokeObjectURL(objectURL) // Limpeza para liberar memória
       } else {
-        // Caso contrário, é uma string de URL
         downloadRef.current.href = analise[1]
         downloadRef.current.click()
       }
@@ -132,7 +125,6 @@ export default function Analise() {
           sx={{
             display: 'flex',
             padding: '15px',
-            // border: '0.0625rem solid black',
             width: '95%',
             height: '45rem',
             justifyContent: 'space-evenly',
