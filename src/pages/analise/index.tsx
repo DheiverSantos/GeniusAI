@@ -20,6 +20,7 @@ import getAnaliseApi from '../../API'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
 import Explication from '../../components/explication/Explication'
+import { btnStyles, selectStyles } from './style'
 
 const theme = createTheme({
   palette: {
@@ -117,6 +118,7 @@ export default function Analise() {
           alignItems: 'center',
           width: '100%',
           height: '100%',
+          overflow: 'auto',
         }}
       >
         <Header />
@@ -126,12 +128,19 @@ export default function Analise() {
             display: 'flex',
             padding: '15px',
             width: '95%',
-            height: '45rem',
-            justifyContent: 'space-evenly',
-            gap: '0.625rem',
+            height: { xs: 'auto', md: '45rem' },
+            justifyContent: 'center',
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+            gap: '4rem',
           }}
         >
-          <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             {/* Side left */}
             <Box
               sx={{
@@ -139,6 +148,8 @@ export default function Analise() {
                 alignItems: 'flex-end',
                 margin: '.5rem',
                 justifyContent: 'space-between',
+                padding: '0.5rem',
+                gap: '1rem',
               }}
             >
               <Typography
@@ -154,12 +165,7 @@ export default function Analise() {
                   id="demo-simple-select"
                   value={modelo}
                   onChange={handleChangeModelo}
-                  sx={{
-                    width: '10rem',
-                    height: '2.5rem',
-                    color: '#001BA1',
-                    fontSize: '12px',
-                  }}
+                  sx={selectStyles}
                 >
                   {modelosList.map((modelo, index) => (
                     <MenuItem
@@ -178,7 +184,7 @@ export default function Analise() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 onClick={handleSend}
-                sx={{ width: '7.5rem', height: '2.5rem' }}
+                sx={btnStyles}
               >
                 Enviar
               </Button>
@@ -187,7 +193,7 @@ export default function Analise() {
                 variant="outlined"
                 endIcon={<RestartAltIcon />}
                 onClick={handleReset}
-                sx={{ width: '7.5rem', height: '2.5rem' }}
+                sx={btnStyles}
               >
                 Limpar
               </Button>
@@ -197,7 +203,13 @@ export default function Analise() {
               setSelectedImage={setSelectedImage}
             />
           </Box>
-          <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             {/* Side rigth */}
             <Box
               sx={{
@@ -205,6 +217,14 @@ export default function Analise() {
                 alignItems: 'flex-end',
                 margin: '1.875rem 0.5rem 0.5rem',
                 justifyContent: 'space-between',
+                width: {
+                  xs: '18.75rem',
+                  sm: '25rem',
+                  md: '28.125rem',
+                  lg: '31.25rem',
+                  xl: '34.375rem',
+                },
+                padding: '0.5rem',
               }}
             >
               <Typography
@@ -217,7 +237,7 @@ export default function Analise() {
                 variant="outlined"
                 endIcon={<DownloadIcon />}
                 onClick={handleDownload}
-                sx={{ width: '7.5rem', height: '2.5rem' }}
+                sx={btnStyles}
               >
                 Baixar
               </Button>

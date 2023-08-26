@@ -58,9 +58,7 @@ const InputImg: React.FC<InputImgProps> = ({
         {imageSrc ? (
           <img src={imageSrc} alt="preview" className="picture__image" />
         ) : (
-          <span className="picture__image">
-            Solte a Imagem Aqui - ou - Clique para o Upload
-          </span>
+          <span className="picture__image">Insira Imagem</span>
         )}
       </label>
       <input

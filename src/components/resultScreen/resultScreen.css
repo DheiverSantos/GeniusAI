@@ -19,3 +19,44 @@
   height: 100%;
 }
 
+
+
+/* Extra pequenos dispositivos (xs) - celulares */
+@media (max-width: 599px) {
+  .box-result {
+    width: 18.75rem;  
+    height: 18.75rem;
+  }
+}
+
+/* Pequenos dispositivos (sm) - tablets verticais */
+@media (min-width: 600px) and (max-width: 959px) {
+  .box-result {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+
+/* Dispositivos médios (md) - tablets horizontais e telas menores de desktop */
+@media (min-width: 960px) and (max-width: 1279px) {
+  .box-result {
+    width: 28.125rem;
+    height: 28.125rem;
+  }
+}
+
+/* Grandes dispositivos (lg) - desktops */
+@media (min-width: 1280px) and (max-width: 1919px) {
+  .box-result {
+    width: 31.25rem;
+    height: 31.25rem;
+  }
+}
+
+/* Extra grandes dispositivos (xl) - monitores maiores */
+@media (min-width: 1920px) {
+  .box-result {
+    width: 34.375rem;
+    height: 34.375rem;
+  }
+}
