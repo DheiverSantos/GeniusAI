@@ -1,11 +1,6 @@
-import {
-  Box,
-  Button,
-  ThemeProvider,
-  Typography,
-  createTheme,
-} from '@mui/material'
+import { Box, ThemeProvider, createTheme } from '@mui/material'
 import icon from '../../assets/icon.png'
+import MenuBar from '../menuBar/MenuBar'
 
 const theme = createTheme({
   palette: {
@@ -33,19 +28,7 @@ function Header() {
           alt="logo-speed-beer"
           style={{ width: '2.5rem', height: '2.5rem' }}
         />
-
-        <Typography variant="h5" align="center" sx={{ color: '#001BA1' }}>
-          Segmentação de Angiograma Coronariano
-        </Typography>
-        <Button
-          variant="contained"
-          component="a"
-          href="https://api.whatsapp.com/send?phone=+5551989889898&text=OLA"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Contato
-        </Button>
+        <MenuBar />
       </Box>
     </ThemeProvider>
   )
