@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material'
 import { useState } from 'react'
+import titleStyles from './style'
 
 const steps = [
   {
@@ -73,6 +74,9 @@ export default function Intro() {
   }
   return (
     <ThemeProvider theme={theme}>
+      <Typography variant="h5" align="center" sx={titleStyles}>
+        Segmentação de Angiograma Coronariano
+      </Typography>
       <Box sx={{ width: '70vw', flexGrow: 1, margin: '2rem', mx: 'auto' }}>
         {' '}
         <MobileStepper
@@ -128,7 +132,7 @@ export default function Intro() {
           {steps[activeStep].description.split('\n').map((line, index) => (
             <Typography
               key={index}
-              component="span"
+              component="div"
               sx={{ textAlign: 'justify' }}
             >
               {line}
