@@ -7,12 +7,12 @@ import {
   CssBaseline,
   ThemeProvider,
   createTheme,
-  Box,
   Select,
   MenuItem,
   SelectChangeEvent,
   Button,
   Typography,
+  Box,
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg'
 import ResultScreen from '../../components/resultScreen/ResultScreen'
@@ -20,7 +20,14 @@ import getAnaliseApi from '../../API'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
 import Explication from '../../components/explication/Explication'
-import { btnStyles, selectStyles } from './style'
+import {
+  divAnaliseStyle,
+  btnStyles,
+  selectStyles,
+  mainStyle,
+  boxLeftStyle,
+  boxRigthStyle,
+} from './style'
 
 const theme = createTheme({
   palette: {
@@ -110,30 +117,11 @@ export default function Analise() {
         ref={downloadRef}
         style={{ display: 'none' }}
         download="result_image.jpg"
-      ></a>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%',
-          height: '100%',
-          overflow: 'auto',
-        }}
-      >
+      ></a>{' '}
+      <Box sx={mainStyle}>
         <Header />
         <Intro />
-        <Box
-          sx={{
-            display: 'flex',
-            padding: '15px',
-            width: '95%',
-            height: { xs: 'auto', md: '45rem' },
-            justifyContent: 'center',
-            flexDirection: { xs: 'column', sm: 'column', md: 'row' },
-            gap: '4rem',
-          }}
-        >
+        <Box sx={divAnaliseStyle}>
           <Box
             sx={{
               display: 'flex',
@@ -142,16 +130,7 @@ export default function Analise() {
             }}
           >
             {/* Side left */}
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                margin: '.5rem',
-                justifyContent: 'space-between',
-                padding: '0.5rem',
-                gap: '1rem',
-              }}
-            >
+            <Box sx={boxLeftStyle}>
               <Typography
                 sx={{
                   display: 'flex',
@@ -211,22 +190,7 @@ export default function Analise() {
             }}
           >
             {/* Side rigth */}
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                margin: '1.875rem 0.5rem 0.5rem',
-                justifyContent: 'space-between',
-                width: {
-                  xs: '18.75rem',
-                  sm: '25rem',
-                  md: '28.125rem',
-                  lg: '31.25rem',
-                  xl: '34.375rem',
-                },
-                padding: '0.5rem',
-              }}
-            >
+            <Box sx={boxRigthStyle}>
               <Typography
                 variant="body1"
                 sx={{ color: '#001BA1' }}

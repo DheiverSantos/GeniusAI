@@ -1,3 +1,12 @@
+export const mainStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%',
+  overflow: 'auto',
+}
+
 export const btnStyles = {
   width: {
     xs: '6rem',
@@ -32,4 +41,38 @@ export const selectStyles = {
     lg: '2.7rem',
     xl: '2.9rem',
   },
+}
+
+export const divAnaliseStyle = {
+  display: 'flex',
+  padding: '15px',
+  width: '95%',
+  height: { xs: 'auto', md: '45rem' },
+  justifyContent: 'center',
+  flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+  gap: { xs: '1rem', sm: '1rem', md: '4rem' },
+}
+
+export const boxLeftStyle = {
+  display: 'flex',
+  alignItems: 'flex-end',
+  margin: '.5rem',
+  justifyContent: 'space-between',
+  padding: '0.5rem',
+  gap: '1rem',
+}
+
+export const boxRigthStyle = {
+  display: 'flex',
+  alignItems: 'flex-end',
+  margin: '1.875rem 0.5rem 0.5rem',
+  justifyContent: 'space-between',
+  width: {
+    xs: '18.75rem',
+    sm: '25rem',
+    md: '28.125rem',
+    lg: '31.25rem',
+    xl: '31.30rem',
+  },
+  padding: '0.5rem',
 }
