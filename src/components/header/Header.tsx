@@ -25,7 +25,7 @@ function Header() {
         <img
           className="img-icon"
           src={icon}
-          alt="logo-speed-beer"
+          alt="logo"
           style={{ width: '2.5rem', height: '2.5rem' }}
         />
         <MenuBar />

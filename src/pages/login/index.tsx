@@ -66,7 +66,7 @@ export default function Login() {
             justifyContent: 'center',
           }}
         >
-          <img className="img-logo" src={logo} alt="logo-speed-beer" />
+          <img className="img-logo" src={logo} alt="logo" />
           <Box
             component="form"
             onSubmit={handleSubmit}
