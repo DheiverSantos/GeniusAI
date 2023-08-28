@@ -47,7 +47,7 @@ export const divAnaliseStyle = {
   display: 'flex',
   padding: '15px',
   width: '95%',
-  height: { xs: 'auto', md: '45rem' },
+  height: 'auto',
   justifyContent: 'center',
   flexDirection: { xs: 'column', sm: 'column', md: 'row' },
   gap: { xs: '1rem', sm: '1rem', md: '4rem' },
