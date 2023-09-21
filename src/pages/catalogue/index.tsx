@@ -21,6 +21,7 @@ import CardFull from '../../components/cardFull/CardFull'
 import coracao from '../../assets/coracao.jpeg'
 import mama from '../../assets/mama.jpeg'
 import pele from '../../assets/pele.jpg'
+import glaucoma from '../../assets/glaucoma.jpg'
 
 const theme = createTheme({
   palette: {
@@ -90,13 +91,14 @@ export default function Catalogue() {
           <Box
             sx={{
               display: 'flex',
-              width: '100%',
+              width: '80%',
               justifyContent: 'space-evenly',
             }}
           >
             <CardFull thumb={coracao} />
             <CardFull thumb={pele} />
             <CardFull thumb={mama} />
+            <CardFull thumb={glaucoma} />
           </Box>
         </Box>
       </Box>
