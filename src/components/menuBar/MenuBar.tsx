@@ -15,8 +15,10 @@ import {
   Settings,
   WhatsApp,
 } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 export default function MenuBar() {
+  const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -105,7 +107,7 @@ export default function MenuBar() {
         </a>
 
         <Divider />
-        <MenuItem sx={{ color: '#001BA1' }} onClick={handleClose}>
+        <MenuItem sx={{ color: '#001BA1' }} onClick={() => navigate('/')}>
           <ListItemIcon>
             <Logout fontSize="small" sx={{ color: '#001BA1' }} />
           </ListItemIcon>
