@@ -10,7 +10,7 @@ interface CardFullProps {
 
 export default function CardFull({ thumb }: CardFullProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, marginBottom: '2rem' }}>
       <CardActionArea>
         <CardMedia component="img" height="140" image={thumb} alt="thumb" />
         <CardContent>

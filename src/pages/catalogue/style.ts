@@ -80,6 +80,7 @@ export const subTitleStyle = {
 export const cardsSection = {
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
   width: '90%',
   gap: 5,
 }
