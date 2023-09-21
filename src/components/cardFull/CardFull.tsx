@@ -3,23 +3,38 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 interface CardFullProps {
-  thumb: string
+  modelsInfoProps: {
+    thumb: string
+    alias: string
+    description: string
+  }
 }
 
-export default function CardFull({ thumb }: CardFullProps) {
+export default function CardFull({ modelsInfoProps }: CardFullProps) {
+  const navigate = useNavigate()
   return (
     <Card sx={{ maxWidth: 345, marginBottom: '2rem' }}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={thumb} alt="thumb" />
+      <CardActionArea onClick={() => navigate(`/${modelsInfoProps.alias}`)}>
+        <CardMedia
+          component="img"
+          height="140"
+          image={modelsInfoProps.thumb}
+          alt="thumb"
+        />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ color: '#071047' }}
+          >
+            {modelsInfoProps.alias}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography variant="body2" align="justify" sx={{ color: '#001BA1' }}>
+            {modelsInfoProps.description}
           </Typography>
         </CardContent>
       </CardActionArea>
