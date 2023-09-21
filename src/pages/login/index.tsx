@@ -49,7 +49,7 @@ export default function Login() {
     setLoginAttempted(true)
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
-      navigate('/analise')
+      navigate('/Catalogo')
     }
   }
 

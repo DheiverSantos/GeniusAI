@@ -18,10 +18,7 @@ import {
 } from '../catalogue/style'
 import banner from '../../assets/banner.jpg'
 import CardFull from '../../components/cardFull/CardFull'
-import coracao from '../../assets/coracao.jpeg'
-import mama from '../../assets/mama.jpeg'
-import pele from '../../assets/pele.jpg'
-import glaucoma from '../../assets/glaucoma.jpg'
+import { modelsInfo } from '../../utils/modelsInfo'
 
 const theme = createTheme({
   palette: {
@@ -85,20 +82,24 @@ export default function Catalogue() {
           </Box>
         </Box>
         <Box sx={cardsSection}>
-          <Typography variant="h3" sx={titleStyle}>
-            Analises
-          </Typography>
           <Box
             sx={{
               display: 'flex',
               width: '80%',
               justifyContent: 'space-evenly',
+              flexWrap: 'wrap',
             }}
           >
-            <CardFull thumb={coracao} />
-            <CardFull thumb={pele} />
-            <CardFull thumb={mama} />
-            <CardFull thumb={glaucoma} />
+            {modelsInfo.map((model) => (
+              <CardFull
+                key={model.alias}
+                modelsInfoProps={{
+                  thumb: model.thumb,
+                  alias: model.alias,
+                  description: model.description,
+                }}
+              />
+            ))}
           </Box>
         </Box>
       </Box>
