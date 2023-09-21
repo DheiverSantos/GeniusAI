@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, useEffect } from 'react'
-import './InputImg.css'
 import { Box } from '@mui/material'
+import { pictureStyles, inputStyles } from './style'
 
 interface InputImgProps {
   isResetImg: boolean
@@ -54,19 +54,33 @@ const InputImg: React.FC<InputImgProps> = ({
 
   return (
     <Box onDrop={handleDrop} onDragOver={preventDragHandler}>
-      <label className="picture" htmlFor="picture__input" tabIndex={0}>
+      <Box
+        component="label"
+        htmlFor="picture__input"
+        tabIndex={0}
+        sx={pictureStyles}
+      >
         {imageSrc ? (
-          <img src={imageSrc} alt="preview" className="picture__image" />
+          <img
+            src={imageSrc}
+            alt="preview"
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain',
+            }}
+          />
         ) : (
-          <span className="picture__image">Insira Imagem</span>
+          <span>Insira Imagem</span>
         )}
-      </label>
+      </Box>
       <input
         type="file"
         id="picture__input"
         name="picture__input"
         onChange={handleInputChange}
         accept="image/*"
+        style={inputStyles}
       />
     </Box>
   )

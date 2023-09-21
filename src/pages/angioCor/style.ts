@@ -50,7 +50,7 @@ export const divAnaliseStyle = {
   height: 'auto',
   justifyContent: 'center',
   flexDirection: { xs: 'column', sm: 'column', md: 'row' },
-  gap: { xs: '1rem', sm: '1rem', md: '4rem' },
+  gap: { xs: '1rem', sm: '1rem', md: '1rem' },
 }
 
 export const boxLeftStyle = {
@@ -72,7 +72,7 @@ export const boxRigthStyle = {
     sm: '25rem',
     md: '28.125rem',
     lg: '31.25rem',
-    xl: '31.30rem',
+    xl: '34.375rem',
   },
   padding: '0.5rem',
 }

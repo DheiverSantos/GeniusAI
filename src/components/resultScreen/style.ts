@@ -31,4 +31,4 @@ const spinnerContainerStyles = {
   height: '100%',
 }
 
-export { boxResultStyles, spinnerContainerStyles };
+export { boxResultStyles, spinnerContainerStyles }

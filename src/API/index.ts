@@ -26,7 +26,6 @@ async function getAnaliseApi(
       modelo,
       true,
     ])) as ApiResponse
-    // console.log(result.data)
     console.log(result.data)
     return result.data
   } catch (error) {
