@@ -74,6 +74,7 @@ export default function Analise() {
 
     if (selectedImage) {
       const result = await getAnaliseApi(selectedImage, modelo)
+
       setAnalise(result)
     }
 

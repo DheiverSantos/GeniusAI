@@ -19,6 +19,8 @@ import {
 import banner from '../../assets/banner.jpg'
 import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -27,6 +29,14 @@ const theme = createTheme({
 })
 
 export default function Catalogue() {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+      navigate('/')
+    }
+  }, [navigate])
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
