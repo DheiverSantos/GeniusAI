@@ -70,6 +70,7 @@ export default function AngioCor() {
   }
 
   const handleSend = async () => {
+    setAnalise([])
     setIsResetImg(false)
     setIsSend(true)
 

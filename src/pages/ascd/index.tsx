@@ -52,11 +52,11 @@ export default function ASCD() {
   }, [navigate])
 
   const handleSend = async () => {
+    setAnalise([])
     setIsResetImg(false)
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
-      console.log('teste Req analise', result)
 
       setAnalise(result as AnaliseType)
     }
@@ -134,10 +134,11 @@ export default function ASCD() {
                   width: '80%',
                   height: '50%',
                   justifyContent: 'space-evenly',
+                  color: 'blue',
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Meningiomas: ${
+                  <Typography>{`Melanocytic-nevi: ${
                     analise.length > 0 && analise[0]?.score
                       ? `${Math.round(analise[0]?.score * 1000) / 10}%`
                       : ''
@@ -152,7 +153,7 @@ export default function ASCD() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Gliomas: ${
+                  <Typography>{`Melanoma: ${
                     analise.length > 0 && analise[1]?.score
                       ? `${Math.round(analise[1]?.score * 1000) / 10}%`
                       : ''
@@ -167,7 +168,7 @@ export default function ASCD() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Pituitary: ${
+                  <Typography>{`Benign-keratosis-like-lesi: ${
                     analise.length > 0 && analise[2]?.score
                       ? `${Math.round(analise[2]?.score * 1000) / 10}%`
                       : ''
@@ -182,7 +183,7 @@ export default function ASCD() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Pituitary: ${
+                  <Typography>{`Basal-cell-carcinoma: ${
                     analise.length > 0 && analise[3]?.score
                       ? `${Math.round(analise[3]?.score * 1000) / 10}%`
                       : ''
@@ -197,7 +198,7 @@ export default function ASCD() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Pituitary: ${
+                  <Typography>{`Actinic-keratoses: ${
                     analise.length > 0 && analise[4]?.score
                       ? `${Math.round(analise[4]?.score * 1000) / 10}%`
                       : ''

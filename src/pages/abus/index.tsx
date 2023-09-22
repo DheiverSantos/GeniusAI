@@ -52,11 +52,11 @@ export default function Abus() {
   }, [navigate])
 
   const handleSend = async () => {
+    setAnalise([])
     setIsResetImg(false)
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
-      console.log('teste Req analise', result)
 
       setAnalise(result as AnaliseType)
     }
@@ -134,6 +134,7 @@ export default function Abus() {
                   width: '80%',
                   height: '50%',
                   justifyContent: 'space-evenly',
+                  color: 'blue',
                 }}
               >
                 <Box sx={{ width: '100%' }}>

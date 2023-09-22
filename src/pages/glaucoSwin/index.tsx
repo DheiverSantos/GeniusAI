@@ -52,11 +52,11 @@ export default function GlaucoSwin() {
   }, [navigate])
 
   const handleSend = async () => {
+    setAnalise([])
     setIsResetImg(false)
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
-      console.log('teste Req analise', result)
 
       setAnalise(result as AnaliseType)
     }
@@ -134,6 +134,7 @@ export default function GlaucoSwin() {
                   width: '80%',
                   height: '50%',
                   justifyContent: 'space-evenly',
+                  color: 'blue',
                 }}
               >
                 <Box sx={{ width: '100%' }}>
@@ -152,7 +153,7 @@ export default function GlaucoSwin() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Não Glaucoma: ${
+                  <Typography>{`Non-glaucoma: ${
                     analise.length > 0 && analise[1]?.score
                       ? `${Math.round(analise[1]?.score * 1000) / 10}%`
                       : ''
