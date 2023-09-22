@@ -59,7 +59,8 @@ export default function Catalogue() {
               sx={{
                 display: {
                   xs: 'none',
-                  sm: 'flex',
+                  sm: 'none',
+                  md: 'flex',
                 },
                 gap: 4,
               }}
@@ -98,6 +99,7 @@ export default function Catalogue() {
               width: '80%',
               justifyContent: 'space-evenly',
               flexWrap: 'wrap',
+              gap: 2,
             }}
           >
             {modelsInfo.map((model) => (

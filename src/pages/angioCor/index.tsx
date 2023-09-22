@@ -16,7 +16,7 @@ import {
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg'
 import ResultScreen from '../../components/resultScreen/ResultScreen'
-import getAnaliseApi from '../../API'
+import getApi from '../../API/getAngioCor'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
 import Explication from '../../components/explication/Explication'
@@ -28,6 +28,7 @@ import {
   boxLeftStyle,
   boxRigthStyle,
 } from './style'
+import { modelsInfo } from '../../utils/modelsInfo'
 
 const theme = createTheme({
   palette: {
@@ -45,7 +46,7 @@ type AnaliseType =
     ]
   | []
 
-export default function Analise() {
+export default function AngioCor() {
   const [modelo, setModelo] = useState('SE-RegUNet 4GF')
   const [isResetImg, setIsResetImg] = useState(false)
   const [analise, setAnalise] = useState<AnaliseType>([])
@@ -73,7 +74,7 @@ export default function Analise() {
     setIsSend(true)
 
     if (selectedImage) {
-      const result = await getAnaliseApi(selectedImage, modelo)
+      const result = await getApi(selectedImage, modelo)
 
       setAnalise(result)
     }
@@ -121,7 +122,9 @@ export default function Analise() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro />
+        <Intro
+          titleModel={`${modelsInfo[0].alias} - ${modelsInfo[0].fullname}`}
+        />
         <Box sx={divAnaliseStyle}>
           <Box
             sx={{

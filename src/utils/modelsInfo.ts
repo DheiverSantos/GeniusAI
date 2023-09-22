@@ -10,10 +10,10 @@ export const modelsInfo = [
     alias: 'AngioCor',
     thumb: angiocorThumb,
     description:
-      'O Aplicativo de Segmentação de Angiograma Coronariano é uma ferramenta projetada para auxiliar profissionais de saúde na análise de imagens médicas de angiogramas coronarianos. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos.',
+      'O Modelo de Segmentação de Angiograma Coronariano é uma ferramenta projetada para auxiliar profissionais de saúde na análise de imagens médicas de angiogramas coronarianos. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos.',
   },
   {
-    fullname: 'Modelo-de-Classificacao-de-Glaucoma',
+    fullname: 'Classificação de Glaucoma',
     alias: 'GlaucoSwin',
     thumb: glaucoswinThumb,
     description:

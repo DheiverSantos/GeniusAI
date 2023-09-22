@@ -31,7 +31,7 @@ export const bannerStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    position: 'relative', // Isso garante que a imagem fique atrás do ::before pseudo-element
+    position: 'relative',
     zIndex: 0,
   },
 }
@@ -40,7 +40,7 @@ export const vidroStyle = {
   position: 'absolute',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%)', // Isto move o box de volta para cima e para a esquerda pela metade de sua altura e largura, respectivamente.
+  transform: 'translate(-50%, -50%)',
   zIndex: 1,
   borderRadius: '20px',
   background:
@@ -66,8 +66,12 @@ export const titleStyle = {
   color: '#071047',
   textAlign: 'center',
   fontFamily: 'Poppins',
-  // fontStyle: 'normal',
   fontWeight: 700,
+  fontSize: {
+    xs: '1.5rem', // Defina o tamanho da fonte para xs
+    sm: '2rem', // Defina o tamanho da fonte para sm
+    md: '2.5rem', // Defina o tamanho da fonte para md
+  },
 }
 
 export const subTitleStyle = {
@@ -75,6 +79,11 @@ export const subTitleStyle = {
   fontWeight: 500,
   width: '50%',
   textAlign: 'center',
+  display: {
+    xs: 'none', // Oculta o subtítulo em xs
+    sm: 'none', // Oculta o subtítulo em sm
+    md: 'block', // Mostra o subtítulo em md e tamanhos maiores
+  },
 }
 
 export const cardsSection = {

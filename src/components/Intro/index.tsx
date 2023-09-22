@@ -46,7 +46,11 @@ const theme = createTheme({
   },
 })
 
-export default function Intro() {
+interface IntroProps {
+  titleModel: string
+}
+
+export default function Intro({ titleModel }: IntroProps) {
   const [activeStep, setActiveStep] = useState(0)
   const maxSteps = steps.length
 
@@ -60,7 +64,7 @@ export default function Intro() {
   return (
     <ThemeProvider theme={theme}>
       <Typography variant="h5" align="center" sx={titleStyles}>
-        Segmentação de Angiograma Coronariano
+        {titleModel}
       </Typography>
       <Box sx={{ width: '70vw', flexGrow: 1, margin: '2rem', mx: 'auto' }}>
         {' '}

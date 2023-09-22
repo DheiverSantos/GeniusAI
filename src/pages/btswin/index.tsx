@@ -11,9 +11,9 @@ import {
   Box,
   LinearProgress,
 } from '@mui/material'
-import InputImg from '../../components/inputImg/InputImg'
-import Header from '../../components/header/Header'
-import Intro from '../../components/Intro'
+import InputImg from '../../components/inputImg/InputImg.tsx'
+import Header from '../../components/header/Header.tsx'
+import Intro from '../../components/Intro/index.tsx'
 import {
   divAnaliseStyle,
   btnStyles,
@@ -22,8 +22,8 @@ import {
   boxRigthStyle,
   boxResultStyles,
 } from './style'
-import getApi from '../../API/getGlaucoSwin'
-import { modelsInfo } from '../../utils/modelsInfo'
+import getApi from '../../API/getBTSwin.ts'
+import { modelsInfo } from '../../utils/modelsInfo.ts'
 
 const theme = createTheme({
   palette: {
@@ -38,7 +38,7 @@ interface ClassificationResult {
 
 type AnaliseType = ClassificationResult[] | []
 
-export default function GlaucoSwin() {
+export default function BTSwin() {
   const [isResetImg, setIsResetImg] = useState(false)
   const [analise, setAnalise] = useState<AnaliseType>([])
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
@@ -80,7 +80,7 @@ export default function GlaucoSwin() {
       <Box sx={mainStyle}>
         <Header />
         <Intro
-          titleModel={`${modelsInfo[1].alias} - ${modelsInfo[1].fullname}`}
+          titleModel={`${modelsInfo[4].alias} - ${modelsInfo[4].fullname}`}
         />
         <Box sx={divAnaliseStyle}>
           <Box
@@ -137,7 +137,7 @@ export default function GlaucoSwin() {
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Glaucoma: ${
+                  <Typography>{`Meningiomas Tumor: ${
                     analise.length > 0 && analise[0]?.score
                       ? `${Math.round(analise[0]?.score * 1000) / 10}%`
                       : ''
@@ -152,7 +152,7 @@ export default function GlaucoSwin() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Não Glaucoma: ${
+                  <Typography>{`Gliomas Tumor: ${
                     analise.length > 0 && analise[1]?.score
                       ? `${Math.round(analise[1]?.score * 1000) / 10}%`
                       : ''
@@ -162,6 +162,21 @@ export default function GlaucoSwin() {
                     value={
                       analise.length > 0 && analise[1]?.score
                         ? Math.round(analise[1]?.score * 1000) / 10
+                        : 0
+                    }
+                  />
+                </Box>
+                <Box sx={{ width: '100%' }}>
+                  <Typography>{`Pituitary Tumor: ${
+                    analise.length > 0 && analise[2]?.score
+                      ? `${Math.round(analise[2]?.score * 1000) / 10}%`
+                      : ''
+                  }`}</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    value={
+                      analise.length > 0 && analise[2]?.score
+                        ? Math.round(analise[2]?.score * 1000) / 10
                         : 0
                     }
                   />

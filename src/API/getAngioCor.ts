@@ -13,7 +13,7 @@ interface ApiResponse {
   fn_index: number
 }
 
-async function getAnaliseApi(
+async function getAngioCor(
   imgBlob: Blob,
   modelo: string,
 ): Promise<AnaliseType> {
@@ -34,4 +34,4 @@ async function getAnaliseApi(
   }
 }
 
-export default getAnaliseApi
+export default getAngioCor

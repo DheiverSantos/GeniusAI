@@ -1,6 +1,7 @@
 import { Box, ThemeProvider, createTheme } from '@mui/material'
 import icon from '../../assets/icon.png'
 import MenuBar from '../menuBar/MenuBar'
+import { useNavigate } from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -9,6 +10,12 @@ const theme = createTheme({
 })
 
 function Header() {
+  const navigate = useNavigate()
+
+  const handleIconClick = () => {
+    navigate('/catalogo')
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -27,7 +34,8 @@ function Header() {
           className="img-icon"
           src={icon}
           alt="logo"
-          style={{ width: '2.5rem', height: '2.5rem' }}
+          style={{ width: '2.5rem', height: '2.5rem', cursor: 'pointer' }}
+          onClick={handleIconClick}
         />
         <MenuBar />
       </Box>
