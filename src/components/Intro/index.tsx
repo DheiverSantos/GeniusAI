@@ -14,26 +14,17 @@ import titleStyles from './style'
 const steps = [
   {
     label: 'Como Funciona:',
-    description: `O Aplicativo de Segmentação de Angiograma Coronariano é uma ferramenta projetada para auxiliar profissionais de saúde na análise de imagens médicas de angiogramas coronarianos. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos.
+    description: `Projetado para auxiliar profissionais de saúde na análise de imagens médicas. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece detecção de possíveis doenças com base nos exames de imagem.
     
     Seu funcionamento é baseado em etapas intuitivas:`,
   },
   {
     label: 'Carregue a Imagem',
-    description:
-      'Faça o upload de um angiograma coronariano para a plataforma.',
-  },
-  {
-    label: 'Escolha o Modelo',
-    description: `Selecione um dos modelos pré-treinados, otimizados para diferentes tipos de imagens e necessidades médicas.`,
-  },
-  {
-    label: 'Segmentação Avançada',
-    description: ` O aplicativo processa a imagem usando técnicas de aprendizado profundo, identificando os vasos sanguíneos coronarianos.`,
+    description: 'Faça o upload de uma imagem de exame para a plataforma.',
   },
   {
     label: 'Detecção de Doenças',
-    description: `Utilizando análise de clusterização, o aplicativo identifica possíveis padrões de doenças nos vasos sanguíneos.`,
+    description: `Utilizando análise de clusterização, o aplicativo identifica possíveis padrões de doenças.`,
   },
   {
     label: 'Indicador de Doença',
@@ -41,17 +32,11 @@ const steps = [
   },
   {
     label: 'Resultados Fornecidos:',
-    description: `- Segmentação Clara: Os vasos sanguíneos coronarianos são destacados, permitindo uma análise mais clara das estruturas.
-
-    - Detecção de Doenças: O aplicativo indica se há possíveis padrões de doenças nos vasos, ajudando a identificar áreas de preocupação.
-    
-    - Explicação Informativa: Além do resultado, uma explicação detalhada é fornecida, baseada nas características identificadas.
-    
+    description: `- Detecção de Doenças: O aplicativo indica se há possíveis padrões de doenças, ajudando a identificar áreas de preocupação.
+        
     - Tomada de Decisão Rápida: A análise é realizada em um curto período de tempo, permitindo tomadas de decisão informadas de forma eficaz.
     
-    - Suporte Médico: Profissionais de saúde podem utilizar os resultados para embasar diagnósticos e recomendações aos pacientes.
-    
-    O Aplicativo de Segmentação de Angiograma Coronariano é uma ferramenta poderosa que combina tecnologia de ponta com análise médica, proporcionando um meio eficiente de interpretar imagens de angiogramas coronarianos e identificar possíveis condições médicas.`,
+    - Suporte Médico: Profissionais de saúde podem utilizar os resultados para embasar diagnósticos e recomendações aos pacientes.`,
   },
 ]
 
