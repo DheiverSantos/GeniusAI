@@ -50,7 +50,7 @@ git clone git@github.com:DheiverSantos/GeniusAI.git
 Após concluir a clonagem, navegue até a pasta do projeto:
 
 ```bash
-cd GeniusAI_Front
+cd GeniusAI
 ```
 
 ### Dependências
