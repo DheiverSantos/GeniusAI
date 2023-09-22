@@ -138,7 +138,7 @@ export default function Abus() {
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Benigno: ${
+                  <Typography>{`Benign: ${
                     analise.length > 0 && analise[0]?.score
                       ? `${Math.round(analise[0]?.score * 1000) / 10}%`
                       : ''
@@ -153,7 +153,7 @@ export default function Abus() {
                   />
                 </Box>
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Maligno: ${
+                  <Typography>{`Malignant: ${
                     analise.length > 0 && analise[1]?.score
                       ? `${Math.round(analise[1]?.score * 1000) / 10}%`
                       : ''
