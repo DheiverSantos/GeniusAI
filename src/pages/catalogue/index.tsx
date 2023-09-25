@@ -16,11 +16,12 @@ import {
   titleStyle,
   vidroStyle,
 } from '../catalogue/style'
-import banner from '../../assets/banner.jpg'
+import bannerVideo from '../../assets/video.mp4'
 import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Carousel from '../../components/carousel/Carousel'
 
 const theme = createTheme({
   palette: {
@@ -43,7 +44,10 @@ export default function Catalogue() {
       <Box sx={mainStyle}>
         <Header />
         <Box sx={bannerStyle}>
-          <img src={banner} alt="Banner Medico utilizando Tecnologias" />
+          <video autoPlay loop muted playsInline>
+            <source src={bannerVideo} type="video/mp4" />
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
 
           <Box sx={vidroStyle} />
 

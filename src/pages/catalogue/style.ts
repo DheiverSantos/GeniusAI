@@ -34,6 +34,13 @@ export const bannerStyle = {
     position: 'relative',
     zIndex: 0,
   },
+  '& video': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    position: 'relative',
+    zIndex: 0,
+  },
 }
 
 export const vidroStyle = {
@@ -69,7 +76,7 @@ export const titleStyle = {
   fontWeight: 700,
   fontSize: {
     xs: '1.5rem', // Defina o tamanho da fonte para xs
-    sm: '2rem', // Defina o tamanho da fonte para sm
+    sm: '1.9rem', // Defina o tamanho da fonte para sm
     md: '2.5rem', // Defina o tamanho da fonte para md
   },
 }
