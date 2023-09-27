@@ -21,7 +21,7 @@ import {
   boxLeftStyle,
   boxRigthStyle,
   boxResultStyles,
-} from './style'
+} from '../../StyleGlobal.ts'
 import getApi from '../../API/getBTSwin.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 

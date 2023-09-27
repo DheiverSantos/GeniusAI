@@ -21,7 +21,6 @@ import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Carousel from '../../components/carousel/Carousel'
 
 const theme = createTheme({
   palette: {

@@ -7,23 +7,21 @@ import {
   ThemeProvider,
   createTheme,
   Button,
-  Typography,
   Box,
-  LinearProgress,
 } from '@mui/material'
-import InputImg from '../../components/inputImg/InputImg'
-import Header from '../../components/header/Header'
-import Intro from '../../components/Intro'
+import InputImg from '../../components/inputImg/InputImg.tsx'
+import Header from '../../components/header/Header.tsx'
+import Intro from '../../components/Intro/index.tsx'
 import {
   divAnaliseStyle,
   btnStyles,
   mainStyle,
   boxLeftStyle,
   boxRigthStyle,
-  boxResultStyles,
 } from '../../StyleGlobal.ts'
-import getApi from '../../API/getGlaucoSwin'
-import { modelsInfo } from '../../utils/modelsInfo'
+import getApi from './api/api.ts'
+import { modelsInfo } from '../../utils/modelsInfo.ts'
+import Explication from '../../components/explication/Explication.tsx'
 
 const theme = createTheme({
   palette: {
@@ -31,14 +29,9 @@ const theme = createTheme({
   },
 })
 
-interface ClassificationResult {
-  score: number
-  label: string
-}
+type AnaliseType = [string] | []
 
-type AnaliseType = ClassificationResult[] | []
-
-export default function GlaucoSwin() {
+export default function FractureCheck() {
   const [isResetImg, setIsResetImg] = useState(false)
   const [analise, setAnalise] = useState<AnaliseType>([])
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
@@ -57,6 +50,7 @@ export default function GlaucoSwin() {
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
+      console.log(result)
 
       setAnalise(result as AnaliseType)
     }
@@ -126,49 +120,9 @@ export default function GlaucoSwin() {
                 Limpar
               </Button>
             </Box>
-            <Box sx={boxResultStyles}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  width: '80%',
-                  height: '50%',
-                  justifyContent: 'space-evenly',
-                  color: 'blue',
-                }}
-              >
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Glaucoma: ${
-                    analise.length > 0 && analise[0]?.score
-                      ? `${Math.round(analise[0]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[0]?.score
-                        ? Math.round(analise[0]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Non-glaucoma: ${
-                    analise.length > 0 && analise[1]?.score
-                      ? `${Math.round(analise[1]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[1]?.score
-                        ? Math.round(analise[1]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-              </Box>
-            </Box>
+            <Explication
+              explicationAnalise={analise && analise[0] ? analise[0] : ''}
+            />
           </Box>
         </Box>
       </Box>

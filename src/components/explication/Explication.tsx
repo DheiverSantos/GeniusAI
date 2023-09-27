@@ -14,7 +14,7 @@ export default function Explication({ explicationAnalise }: ExplicationProps) {
         variant="body1"
         sx={isPlaceholder ? placeholderTextStyles : {}}
       >
-        {explicationAnalise || 'explicação'}
+        {explicationAnalise || 'Análise'}
       </Typography>
     </Box>
   )
