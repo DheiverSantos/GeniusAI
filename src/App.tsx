@@ -7,6 +7,7 @@ import BTSwin from './pages/btswin'
 import ASCD from './pages/ascd'
 import AngioCor from './pages/angioCor'
 import FractureCheck from './pages/fractureCheck'
+import AlzDetect from './pages/AlzDetect'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/ABUS" element={<Abus />} />
       <Route path="/ASCD" element={<ASCD />} />
       <Route path="/FractureCheck" element={<FractureCheck />} />
+      <Route path="/AlzDetect" element={<AlzDetect />} />
     </Routes>
   )
 }

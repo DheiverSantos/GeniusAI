@@ -4,6 +4,7 @@ import ascdThumb from '../assets/ascd_thumb.jpg'
 import glaucoswinThumb from '../assets/glaucoswin_thumb.jpg'
 import btswinThumb from '../assets/btswin_thumb.jpeg'
 import fractureCheckThumb from '../assets/fractureCheck_thumb.jpeg'
+import AlzDetect from '../assets/AlzDetect_thumb.jpg'
 
 export const modelsInfo = [
   {
@@ -47,5 +48,12 @@ export const modelsInfo = [
     thumb: fractureCheckThumb,
     description:
       'O "FractureCheck" é a solução inteligente para detectar fraturas ósseas em imagens de raio-X. Rápido, preciso e confiável, este produto simplifica o diagnóstico, tornando-o acessível a todos. Suas imagens, nossa expertise - a resposta em segundos.',
+  },
+  {
+    fullname: 'detecção precoce do Alzheimer',
+    alias: 'AlzDetect',
+    thumb: AlzDetect,
+    description:
+      'O AlzDetect é uma ferramenta de análise de imagem para detecção precoce do Alzheimer. Carregando um modelo de rede neural, ele identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
   },
 ]
