@@ -37,6 +37,7 @@ export default function FractureCheck() {
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
   const navigate = useNavigate()
   const downloadRef = useRef<HTMLAnchorElement>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') !== 'true') {
@@ -47,6 +48,7 @@ export default function FractureCheck() {
   const handleSend = async () => {
     setAnalise([])
     setIsResetImg(false)
+    setIsLoading(true)
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
@@ -55,6 +57,7 @@ export default function FractureCheck() {
       setAnalise(result as AnaliseType)
     }
 
+    setIsLoading(false)
     setSelectedImage(null)
   }
 
@@ -122,6 +125,7 @@ export default function FractureCheck() {
             </Box>
             <Explication
               explicationAnalise={analise && analise[0] ? analise[0] : ''}
+              isLoading={isLoading}
             />
           </Box>
         </Box>

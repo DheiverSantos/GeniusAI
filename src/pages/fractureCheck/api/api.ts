@@ -1,10 +1,6 @@
 import { client } from '@gradio/client'
 
-interface LabelData {
-  label: string
-}
-
-type FractureAnalysisType = [LabelData]
+type FractureAnalysisType = [string]
 
 interface ApiResponse {
   type: string

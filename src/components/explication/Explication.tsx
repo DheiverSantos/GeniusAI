@@ -4,7 +4,7 @@ import Skeleton from '@mui/material/Skeleton'
 
 interface ExplicationProps {
   explicationAnalise: string
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export default function Explication({
