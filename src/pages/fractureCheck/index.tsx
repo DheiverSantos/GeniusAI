@@ -74,7 +74,7 @@ export default function FractureCheck() {
       <Box sx={mainStyle}>
         <Header />
         <Intro
-          titleModel={`${modelsInfo[1].alias} - ${modelsInfo[1].fullname}`}
+          titleModel={`${modelsInfo[5].alias} - ${modelsInfo[5].fullname}`}
         />
         <Box sx={divAnaliseStyle}>
           <Box
