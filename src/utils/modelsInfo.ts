@@ -5,6 +5,14 @@ import glaucoswinThumb from '../assets/glaucoswin_thumb.jpg'
 import btswinThumb from '../assets/btswin_thumb.jpeg'
 import fractureCheckThumb from '../assets/fractureCheck_thumb.jpeg'
 import AlzDetect from '../assets/AlzDetect_thumb.jpg'
+import PCOS from '../assets/PCOS.webp'
+import catarata from '../assets/catarata.jpg'
+import pneumoniaAdulto from '../assets/pneumoniaAdulto.png'
+import pneumoniaInfantil from '../assets/pneumoniaInfantil.jpg'
+import cancerPulmão from '../assets/cancerPulmão.png'
+import cancerColoePulmão from '../assets/cancerColoePulmão.jpg'
+import hemorragiaIntracraniana from '../assets/hemorragiaIntracraniana.jpg'
+import tumorTireoide from '../assets/tumorTireoide.jpg'
 
 export const modelsInfo = [
   {
@@ -55,5 +63,53 @@ export const modelsInfo = [
     thumb: AlzDetect,
     description:
       'O AlzDetect é uma ferramenta de análise de imagem para detecção precoce do Alzheimer. Carregando um modelo de rede neural, ele identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: PCOS,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: catarata,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: pneumoniaAdulto,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: pneumoniaInfantil,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: cancerPulmão,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: cancerColoePulmão,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: hemorragiaIntracraniana,
+    description: '',
+  },
+  {
+    fullname: 'Em Construção',
+    alias: 'Em Construção',
+    thumb: tumorTireoide,
+    description: '',
   },
 ]
