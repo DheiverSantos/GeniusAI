@@ -24,7 +24,7 @@ export default function CardFull({ modelsInfoProps }: CardFullProps) {
           image={modelsInfoProps.thumb}
           alt="thumb"
         />
-        <CardContent>
+        <CardContent sx={{ minHeight: 200 }}>
           <Typography
             gutterBottom
             variant="h5"
