@@ -58,7 +58,7 @@ export default function Catalogue() {
               Facilitamos diagnósticos médicos através de análise de imagens.
               Precisão, Eficiência e diversidade de Aplicações
             </Typography>
-            <Box
+            {/* <Box
               sx={{
                 display: {
                   xs: 'none',
@@ -92,7 +92,7 @@ export default function Catalogue() {
                   Saiba Mais
                 </Button>
               </a>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
         <Box sx={cardsSection}>
