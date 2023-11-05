@@ -110,14 +110,14 @@ export default function Login() {
             >
               Entrar
             </Button>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
+            {/* <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
               <MuiLink
                 href="https://wa.me/message/RH3MIXPLWDZEN1"
                 underline="hover"
               >
                 {'Cadastre-se'}
               </MuiLink>
-            </Box>
+            </Box> */}
             {!isAuth && loginAttempted && (
               <Alert
                 sx={{
