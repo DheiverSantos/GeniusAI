@@ -4,26 +4,17 @@
 
 ## Descrição
 
-Genius AI é uma aplicação que utiliza uma abordagem automatizada para detectar estenose coronariana em angiogramas. Utilizando análise de imagem e um limiar adaptativo, sua tecnologia oferece diagnósticos mais precisos e tratamentos mais eficazes para doenças cardiovasculares. 
-
-A aplicação envolve:
-1. Pré-processamento da imagem.
-2. Segmentação baseada em redes neurais para identificar regiões relevantes, tais como potenciais anomalias nos vasos sanguíneos.
-3. Uso do algoritmo K-means para conduzir uma análise de agrupamento, visando detectar características que indiquem a presença de condições patológicas.
-
-🔗 **API**: Para mais informações sobre a API deste projeto, acesse [aqui](https://github.com/dheiver/api_genius/tree/main).
+Aplicaçãopara realização de diagnósticos médicos através de análise de imagens por IA
 
 🔗 **Deploy**: Para testar a aplicação onlineo, acesse [https://www.genius-ai.app.br/](https://www.genius-ai.app.br/).
 
-## Autores e Contribuidores
+## Autores
 
-### Autor:
 - **Dheiver dos Santos**
   - [LinkedIn](https://www.linkedin.com/in/dheiver-santos/)
   - [GitHub](https://github.com/dheiver)
   - Desenvolvedor da inteligência artificial.
 
-### Contribuidor:
 - **Luiz Filipe de Lima**
   - [LinkedIn](https://www.linkedin.com/in/luizfilipelgs/)
   - [GitHub](https://github.com/luizfilipelgs)
