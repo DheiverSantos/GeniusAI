@@ -6,7 +6,7 @@
 
 Aplicaçãopara realização de diagnósticos médicos através de análise de imagens por IA
 
-🔗 **Deploy**: Para testar a aplicação onlineo, acesse [https://www.genius-ai.app.br/](https://www.genius-ai.app.br/).
+🔗 **Deploy**: Para testar a aplicação online, acesse [https://www.genius-ai.app.br/](https://www.genius-ai.app.br/).
 
 ## Autores
 
@@ -35,7 +35,7 @@ Certifique-se de ter instalado:
 Antes de começar, certifique-se de clonar o repositório do projeto para sua máquina local:
 
 ```bash
-git clone git@github.com:DheiverSantos/GeniusAI.git
+git@github.com:DheiverSantos/GeniusAI_Plataforma.git
 ```
 
 Após concluir a clonagem, navegue até a pasta do projeto:
