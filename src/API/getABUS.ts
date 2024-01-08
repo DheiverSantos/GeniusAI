@@ -6,25 +6,40 @@ interface ClassificationResult {
 type ApiResponse = ClassificationResult[]
 
 async function getABUS(imageBlob: Blob): Promise<ApiResponse> {
-  const response = await fetch(
-    'https://api-inference.huggingface.co/models/DHEIVER/Modelo-Avancado-de-Ultrassom-de-Mama',
-    {
-      headers: {
-        Authorization: 'Bearer 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',
-      },
-      method: 'POST',
-      body: imageBlob,
-    },
-  )
-
-  if (!response.ok) {
-    throw new Error(`API call failed with status: ${response.statusText}`)
+  if (!imageBlob) {
+    throw new Error('No image blob provided')
   }
 
-  const result: ApiResponse = await response.json()
-  console.log(result)
+  try {
+    const apiKey = import.meta.env.VITE_API_KEY
 
-  return result
+    if (!apiKey) {
+      throw new Error('API key is not defined in .env')
+    }
+
+    const response = await fetch(
+      'https://api-inference.huggingface.co/models/DHEIVER/Modelo-Avancado-de-Ultrassom-de-Mama',
+      {
+        headers: {
+          Authorization: apiKey,
+        },
+        method: 'POST',
+        body: imageBlob,
+      },
+    )
+
+    if (!response.ok) {
+      throw new Error(`API call failed with status: ${response.statusText}`)
+    }
+
+    const result: ApiResponse = await response.json()
+    console.log(result)
+
+    return result
+  } catch (error) {
+    console.error('Error fetching ABUS data:', error)
+    throw error
+  }
 }
 
 export default getABUS
