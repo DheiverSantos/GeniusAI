@@ -24,6 +24,8 @@ import {
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getASCD.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
+import imgFake from '../../assets/logo.png'
+import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 
 const theme = createTheme({
   palette: {
@@ -50,6 +52,10 @@ export default function ASCD() {
       navigate('/')
     }
   }, [navigate])
+
+  useEffect(() => {
+    wakeUpApi(getApi)
+  }, [])
 
   const handleSend = async () => {
     setAnalise([])

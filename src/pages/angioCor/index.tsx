@@ -29,6 +29,7 @@ import {
   boxRigthStyle,
 } from './style'
 import { modelsInfo } from '../../utils/modelsInfo'
+import { wakeUpApi } from '../../utils/wakeUpApi'
 
 const theme = createTheme({
   palette: {
@@ -60,6 +61,10 @@ export default function AngioCor() {
       navigate('/')
     }
   }, [navigate])
+
+  useEffect(() => {
+    wakeUpApi(getApi)
+  }, [])
 
   useEffect(() => {
     setIsResetImg(false)

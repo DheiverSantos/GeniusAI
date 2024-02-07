@@ -28,7 +28,10 @@ async function getASCD(imageBlob: Blob): Promise<ApiResponse> {
     })
 
     if (!response.ok) {
-      throw new Error(`API call failed with status: ${response.statusText}`)
+      const errorMessage = `API call failed with status: ${response.status} ${
+        response.statusText || '(no status text)'
+      }`
+      throw new Error(errorMessage)
     }
 
     const result: ApiResponse = await response.json()

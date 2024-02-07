@@ -22,6 +22,7 @@ import {
 import getApi from './api/api.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 import Explication from '../../components/explication/Explication.tsx'
+import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 
 const theme = createTheme({
   palette: {
@@ -44,6 +45,10 @@ export default function AlzDetect() {
       navigate('/')
     }
   }, [navigate])
+
+  useEffect(() => {
+    wakeUpApi(getApi)
+  }, [])
 
   const handleSend = async () => {
     setAnalise(null)

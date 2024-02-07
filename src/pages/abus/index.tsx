@@ -21,9 +21,10 @@ import {
   boxLeftStyle,
   boxRigthStyle,
   boxResultStyles,
-} from '../../StyleGlobal.ts'
+} from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getABUS.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 
 const theme = createTheme({
   palette: {
@@ -50,6 +51,10 @@ export default function Abus() {
       navigate('/')
     }
   }, [navigate])
+
+  useEffect(() => {
+    wakeUpApi(getApi)
+  }, [])
 
   const handleSend = async () => {
     setAnalise([])
@@ -99,7 +104,7 @@ export default function Abus() {
                 onClick={handleSend}
                 sx={btnStyles}
               >
-                Enviar
+                Analisar
               </Button>
             </Box>
             <InputImg

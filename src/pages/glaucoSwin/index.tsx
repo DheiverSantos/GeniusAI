@@ -24,6 +24,7 @@ import {
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getGlaucoSwin'
 import { modelsInfo } from '../../utils/modelsInfo'
+import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 
 const theme = createTheme({
   palette: {
@@ -50,6 +51,10 @@ export default function GlaucoSwin() {
       navigate('/')
     }
   }, [navigate])
+
+  useEffect(() => {
+    wakeUpApi(getApi)
+  }, [])
 
   const handleSend = async () => {
     setAnalise([])
