@@ -13,7 +13,7 @@ function Header() {
   const navigate = useNavigate()
 
   const handleIconClick = () => {
-    navigate('/catalogo')
+    navigate('/Home')
   }
 
   return (

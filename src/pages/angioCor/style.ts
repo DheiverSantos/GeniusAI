@@ -26,7 +26,6 @@ export const btnStyles = {
 
 export const selectStyles = {
   fontSize: '12px',
-  color: '#001BA1',
   width: {
     xs: '6.5rem',
     sm: '9rem',

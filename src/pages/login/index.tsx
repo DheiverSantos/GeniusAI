@@ -11,7 +11,6 @@ import {
   TextField,
   ThemeProvider,
   createTheme,
-  Link as MuiLink,
 } from '@mui/material'
 import { isLoginFormValid, isValidEmail } from '../../utils/validateFormLogin'
 
@@ -49,7 +48,7 @@ export default function Login() {
     setLoginAttempted(true)
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
-      navigate('/Catalogo')
+      navigate('/Home')
     }
   }
 

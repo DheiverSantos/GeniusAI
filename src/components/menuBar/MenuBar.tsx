@@ -42,7 +42,7 @@ export default function MenuBar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <MenuIcon sx={{ color: '#001BA1' }} />
+            <MenuIcon sx={{ color: '#1d4ed8' }} />
           </IconButton>
         </Tooltip>
       </Box>
@@ -81,13 +81,13 @@ export default function MenuBar() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem sx={{ color: '#001BA1' }} onClick={handleClose}>
-          <Avatar sx={{ backgroundColor: '#001BA1' }} /> Profile
+        <MenuItem sx={{ color: '#1d4ed8' }} onClick={handleClose}>
+          <Avatar sx={{ backgroundColor: '#1d4ed8' }} /> Profile
         </MenuItem>
 
-        <MenuItem sx={{ color: '#001BA1' }} onClick={handleClose}>
+        <MenuItem sx={{ color: '#1d4ed8' }} onClick={handleClose}>
           <ListItemIcon>
-            <Settings fontSize="small" sx={{ color: '#001BA1' }} />
+            <Settings fontSize="small" sx={{ color: '#1d4ed8' }} />
           </ListItemIcon>
           Settings
         </MenuItem>
@@ -98,18 +98,18 @@ export default function MenuBar() {
           rel="noopener noreferrer"
           style={{ textDecoration: 'none' }}
         >
-          <MenuItem sx={{ color: '#001BA1' }} onClick={handleClose}>
+          <MenuItem sx={{ color: '#1d4ed8' }} onClick={handleClose}>
             <ListItemIcon>
-              <WhatsApp fontSize="small" sx={{ color: '#001BA1' }} />
+              <WhatsApp fontSize="small" sx={{ color: '#1d4ed8' }} />
             </ListItemIcon>
             Contato
           </MenuItem>
         </a>
 
         <Divider />
-        <MenuItem sx={{ color: '#001BA1' }} onClick={() => navigate('/')}>
+        <MenuItem sx={{ color: '#1d4ed8' }} onClick={() => navigate('/')}>
           <ListItemIcon>
-            <Logout fontSize="small" sx={{ color: '#001BA1' }} />
+            <Logout fontSize="small" sx={{ color: '#1d4ed8' }} />
           </ListItemIcon>
           Logout
         </MenuItem>

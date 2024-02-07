@@ -20,15 +20,14 @@ const pictureStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '#001BA1',
-  border: '1px solid #001BA1',
+  color: '#1d4ed8',
   cursor: 'pointer',
   fontFamily: 'sans-serif',
   transition: 'color 300ms ease-in-out, background 300ms ease-in-out',
   outline: 'none',
   overflow: 'hidden',
   '&:hover': {
-    color: '#001BA1',
+    color: '#1d4ed8',
     background: '#D3EEFF',
   },
   '&:active': {

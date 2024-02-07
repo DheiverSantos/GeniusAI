@@ -140,7 +140,7 @@ export default function AngioCor() {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  color: '#001BA1',
+                  color: '#818196',
                 }}
               >
                 Modelo:
@@ -155,7 +155,7 @@ export default function AngioCor() {
                     <MenuItem
                       key={index}
                       value={modelo}
-                      sx={{ color: '#001BA1', fontSize: '12px' }}
+                      sx={{ fontSize: '12px' }}
                     >
                       {modelo}
                     </MenuItem>
@@ -196,10 +196,9 @@ export default function AngioCor() {
           >
             {/* Side rigth */}
             <Box sx={boxRigthStyle}>
-              <Typography
-                variant="body1"
-                sx={{ color: '#001BA1' }}
-              >{`Possui Doença: ${analise?.[2]?.label ?? ''}`}</Typography>
+              <Typography variant="body1">{`Status da Análise : ${
+                analise?.[2]?.label ?? ''
+              }`}</Typography>
 
               <Button
                 size="large"

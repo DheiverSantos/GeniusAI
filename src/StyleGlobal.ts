@@ -80,7 +80,6 @@ export const boxResultStyles = {
     xl: '34.375rem',
   },
   marginTop: '1rem',
-  border: '0.0625rem solid #001BA1',
   borderRadius: '0.625rem',
   boxShadow: '0.3125rem 0.3125rem 1rem rgba(0, 0, 0, 0.3)',
   display: 'flex',

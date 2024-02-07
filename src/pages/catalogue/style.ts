@@ -75,9 +75,9 @@ export const titleStyle = {
   fontFamily: 'Poppins',
   fontWeight: 700,
   fontSize: {
-    xs: '1.5rem', // Defina o tamanho da fonte para xs
-    sm: '1.9rem', // Defina o tamanho da fonte para sm
-    md: '2.5rem', // Defina o tamanho da fonte para md
+    xs: '1.5rem',
+    sm: '1.9rem',
+    md: '2.5rem',
   },
 }
 
@@ -87,9 +87,9 @@ export const subTitleStyle = {
   width: '50%',
   textAlign: 'center',
   display: {
-    xs: 'none', // Oculta o subtítulo em xs
-    sm: 'none', // Oculta o subtítulo em sm
-    md: 'block', // Mostra o subtítulo em md e tamanhos maiores
+    xs: 'none',
+    sm: 'none',
+    md: 'block',
   },
 }
 
@@ -99,4 +99,5 @@ export const cardsSection = {
   alignItems: 'center',
   width: '90%',
   gap: 5,
+  margin: '4rem 0',
 }

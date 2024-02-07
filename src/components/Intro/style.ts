@@ -1,6 +1,6 @@
 const titleStyles = {
   fontWeight: 'bold',
-  color: '#001BA1',
+  color: '#1d4ed8',
   mt: {
     xs: '1.5rem',
     sm: '1.8rem',

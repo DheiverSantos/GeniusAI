@@ -29,11 +29,11 @@ export default function CardFull({ modelsInfoProps }: CardFullProps) {
             gutterBottom
             variant="h5"
             component="div"
-            sx={{ color: '#071047' }}
+            sx={{ color: '#1d4ed8' }}
           >
             {modelsInfoProps.alias}
           </Typography>
-          <Typography variant="body2" align="justify" sx={{ color: '#001BA1' }}>
+          <Typography variant="body2" align="justify">
             {modelsInfoProps.description}
           </Typography>
         </CardContent>

@@ -134,7 +134,6 @@ export default function Abus() {
                   width: '80%',
                   height: '50%',
                   justifyContent: 'space-evenly',
-                  color: 'blue',
                 }}
               >
                 <Box sx={{ width: '100%' }}>

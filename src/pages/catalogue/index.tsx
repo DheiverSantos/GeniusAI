@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   CssBaseline,
   ThemeProvider,
   Typography,
@@ -21,6 +20,7 @@ import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Hero from '../../components/Hero/Hero'
 
 const theme = createTheme({
   palette: {
@@ -42,59 +42,7 @@ export default function Catalogue() {
       <CssBaseline />
       <Box sx={mainStyle}>
         <Header />
-        <Box sx={bannerStyle}>
-          <video autoPlay loop muted playsInline>
-            <source src={bannerVideo} type="video/mp4" />
-            Seu navegador não suporta o elemento de vídeo.
-          </video>
-
-          <Box sx={vidroStyle} />
-
-          <Box sx={bodyBanner}>
-            <Typography variant="h3" sx={titleStyle}>
-              Tecnologias de Ponta em Diagnósticos Médicos
-            </Typography>
-            <Typography sx={subTitleStyle}>
-              Facilitamos diagnósticos médicos através de análise de imagens.
-              Precisão, Eficiência e diversidade de Aplicações
-            </Typography>
-            {/* <Box
-              sx={{
-                display: {
-                  xs: 'none',
-                  sm: 'none',
-                  md: 'flex',
-                },
-                gap: 4,
-              }}
-            >
-              <a
-                href="https://api.whatsapp.com/send?phone=+5551989889898&text=Olá"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <Button variant="contained" sx={{ background: '#001BA1' }}>
-                  Contato
-                </Button>
-              </a>
-
-              <a
-                href="https://geniusai.art.br/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <Button
-                  variant="outlined"
-                  sx={{ color: '#001BA1', borderColor: '#001BA1' }}
-                >
-                  Saiba Mais
-                </Button>
-              </a>
-            </Box> */}
-          </Box>
-        </Box>
+        <Hero />
         <Box sx={cardsSection}>
           <Box
             sx={{
