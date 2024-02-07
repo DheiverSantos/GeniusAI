@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.10.0' # Use a versão específica do Node.js que você está usando localmente
+          node-version: '20.10.0' # Ou a versão do Node.js que você preferir
 
       - name: Install Dependencies
         run: npm install
@@ -35,8 +35,14 @@ jobs:
 
       - name: Build Project
         run: npm run build
-        # Este passo é crucial para capturar erros de compilação
+        # Certifique-se de que isso gera os arquivos estáticos no diretório correto (ex: 'dist')
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4 # Certifique-se de usar a versão 'v4' ou mais recente
+        with:
+          name: github-pages # Este é o nome do artefato que será usado no deploy
+          path: dist/ # Ou o caminho para o diretório onde os arquivos de build são gerados
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        # O deploy agora só acontece se os passos anteriores forem bem-sucedidos
+        # Não é necessário especificar 'id: deployment' a menos que você precise referenciar esta etapa especificamente mais tarde
