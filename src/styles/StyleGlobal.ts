@@ -1,3 +1,29 @@
+import { createTheme } from '@mui/material/styles'
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1d4ed8',
+    },
+    secondary: {
+      main: '#10b981',
+    },
+    warning: {
+      main: '#facc15',
+    },
+    background: {
+      default: '#f3f4f6',
+      paper: '#ffffff',
+    },
+    text: {
+      primary: '#1f2937',
+      secondary: '#6b7280',
+    },
+    // Adicione outras personalizações aqui, conforme necessário
+  },
+  // Você pode estender o tema com customizações adicionais
+})
+
 export const mainStyle = {
   display: 'flex',
   flexDirection: 'column',

@@ -8,6 +8,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* Cor Principal */
+  --color-primary: #1d4ed8;
+
+  /* Cores Secundárias */
+  --color-secondary: #10b981;
+  --color-accent: #facc15;
+
+  /* Cores de Fundo */
+  --color-background-light: #f3f4f6;
+  --color-background-dark: #1f2937;
+
+  /* Cores de Texto */
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-on-dark: #ffffff;
+
+  /* Cores Auxiliares */
+  --color-divider: #e5e7eb;
+  --color-placeholder: #9ca3af;
 }
 
 body {
