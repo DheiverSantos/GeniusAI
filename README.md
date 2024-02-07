@@ -8,18 +8,6 @@ Aplicaçãopara realização de diagnósticos médicos através de análise de i
 
 🔗 **Deploy**: Para testar a aplicação online, acesse [https://www.genius-ai.app.br/](https://www.genius-ai.app.br/).
 
-## Autores
-
-- **Dheiver dos Santos**
-  - [LinkedIn](https://www.linkedin.com/in/dheiver-santos/)
-  - [GitHub](https://github.com/dheiver)
-  - Desenvolvedor da inteligência artificial.
-
-- **Luiz Filipe de Lima**
-  - [LinkedIn](https://www.linkedin.com/in/luizfilipelgs/)
-  - [GitHub](https://github.com/luizfilipelgs)
-  - Engenheiro de Software.
-
 ## Como Rodar o Projeto
 
 ### Pré-requisitos
@@ -33,16 +21,6 @@ Certifique-se de ter instalado:
 ### Clonar o Repositório
 
 Antes de começar, certifique-se de clonar o repositório do projeto para sua máquina local:
-
-```bash
-git@github.com:DheiverSantos/GeniusAI_Plataforma.git
-```
-
-Após concluir a clonagem, navegue até a pasta do projeto:
-
-```bash
-cd GeniusAI
-```
 
 ### Dependências
 
