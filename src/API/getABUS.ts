@@ -4,6 +4,8 @@ interface ClassificationResult {
 }
 
 type ApiResponse = ClassificationResult[]
+const LINK_API =
+  'https://api-inference.huggingface.co/models/DHEIVER/Modelo-Avancado-de-Ultrassom-de-Mama'
 
 async function getABUS(imageBlob: Blob): Promise<ApiResponse> {
   if (!imageBlob) {
@@ -17,16 +19,13 @@ async function getABUS(imageBlob: Blob): Promise<ApiResponse> {
       throw new Error('API key is not defined in .env')
     }
 
-    const response = await fetch(
-      'https://api-inference.huggingface.co/models/DHEIVER/Modelo-Avancado-de-Ultrassom-de-Mama',
-      {
-        headers: {
-          Authorization: apiKey,
-        },
-        method: 'POST',
-        body: imageBlob,
+    const response = await fetch(LINK_API, {
+      headers: {
+        Authorization: apiKey,
       },
-    )
+      method: 'POST',
+      body: imageBlob,
+    })
 
     if (!response.ok) {
       throw new Error(`API call failed with status: ${response.statusText}`)
@@ -37,7 +36,7 @@ async function getABUS(imageBlob: Blob): Promise<ApiResponse> {
 
     return result
   } catch (error) {
-    console.error('Error fetching ABUS data:', error)
+    console.error('Error fetching data:', error)
     throw error
   }
 }
