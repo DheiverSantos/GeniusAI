@@ -21,7 +21,7 @@ import {
   boxLeftStyle,
   boxRigthStyle,
   boxResultStyles,
-} from '../../StyleGlobal.ts'
+} from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getBTSwin.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 
@@ -99,7 +99,7 @@ export default function BTSwin() {
                 onClick={handleSend}
                 sx={btnStyles}
               >
-                Enviar
+                Analisar
               </Button>
             </Box>
             <InputImg

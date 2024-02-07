@@ -21,7 +21,7 @@ import {
   boxLeftStyle,
   boxRigthStyle,
   boxResultStyles,
-} from '../../StyleGlobal.ts'
+} from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getGlaucoSwin'
 import { modelsInfo } from '../../utils/modelsInfo'
 
@@ -99,7 +99,7 @@ export default function GlaucoSwin() {
                 onClick={handleSend}
                 sx={btnStyles}
               >
-                Enviar
+                Analisar
               </Button>
             </Box>
             <InputImg

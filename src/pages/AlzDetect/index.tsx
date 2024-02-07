@@ -18,7 +18,7 @@ import {
   mainStyle,
   boxLeftStyle,
   boxRigthStyle,
-} from '../../StyleGlobal.ts'
+} from '../../styles/StyleGlobal.ts'
 import getApi from './api/api.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 import Explication from '../../components/explication/Explication.tsx'
@@ -95,7 +95,7 @@ export default function AlzDetect() {
                 onClick={handleSend}
                 sx={btnStyles}
               >
-                Enviar
+                Analisar
               </Button>
             </Box>
             <InputImg

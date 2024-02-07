@@ -170,7 +170,7 @@ export default function AngioCor() {
                 onClick={handleSend}
                 sx={btnStyles}
               >
-                Enviar
+                Analisar
               </Button>
               <Button
                 size="large"
