@@ -1,6 +1,7 @@
 import imgFake from '../../src/assets/logo.png'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-export const wakeUpApi = async (getAnalise) => {
+export const wakeUpApi = async (getAnalise: any) => {
   try {
     // Fetch da imagem para obter um Blob
     const response = await fetch(imgFake)

@@ -1,19 +1,13 @@
 import { useEffect, useState } from 'react'
 import Doctor from '../../assets/doctor-picture.webp'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import { useNavigate } from 'react-router-dom'
 import './style.css'
 
 function Hero() {
-  const navigate = useNavigate()
   const [goUp, setGoUp] = useState(false)
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const handleBookAppointmentClick = () => {
-    navigate('/appointment')
   }
 
   useEffect(() => {

@@ -1,21 +1,7 @@
-import {
-  Box,
-  CssBaseline,
-  ThemeProvider,
-  Typography,
-  createTheme,
-} from '@mui/material'
+import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import Header from '../../components/header/Header'
-import {
-  bannerStyle,
-  bodyBanner,
-  cardsSection,
-  mainStyle,
-  subTitleStyle,
-  titleStyle,
-  vidroStyle,
-} from '../catalogue/style'
-import bannerVideo from '../../assets/video.mp4'
+import { cardsSection, mainStyle } from '../catalogue/style'
+
 import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { useEffect } from 'react'

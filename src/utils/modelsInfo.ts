@@ -1,10 +1,10 @@
-import angiocorThumb from '../assets/angiocor_thumb.jpeg'
+/* import angiocorThumb from '../assets/angiocor_thumb.jpeg' */
 import abusThumb from '../assets/abus_thumb.jpeg'
 import ascdThumb from '../assets/ascd_thumb.jpg'
 import glaucoswinThumb from '../assets/glaucoswin_thumb.jpg'
 import btswinThumb from '../assets/btswin_thumb.jpeg'
-import fractureCheckThumb from '../assets/fractureCheck_thumb.jpeg'
-import AlzDetect from '../assets/AlzDetect_thumb.jpg'
+/* import fractureCheckThumb from '../assets/fractureCheck_thumb.jpeg'
+import AlzDetect from '../assets/AlzDetect_thumb.jpg' */
 import PCOS from '../assets/PCOS.webp'
 import catarata from '../assets/catarata.jpg'
 import pneumoniaAdulto from '../assets/pneumoniaAdulto.png'
