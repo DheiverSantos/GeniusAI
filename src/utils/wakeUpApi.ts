@@ -1,7 +1,7 @@
 import imgFake from '../../src/assets/logo.png'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export const wakeUpApi = async (getAnalise: (blob: Blob) => Promise<any[]>) => {
+export const wakeUpApi = async (getAnalise: any) => {
   let attempts = 0
   const maxAttempts = 5 // Número máximo de tentativas
   let result: any[] = []
