@@ -1,4 +1,4 @@
-/* import angiocorThumb from '../assets/angiocor_thumb.jpeg' */
+import angiocorThumb from '../assets/angiocor_thumb.jpeg'
 import abusThumb from '../assets/abus_thumb.jpeg'
 import ascdThumb from '../assets/ascd_thumb.jpg'
 import glaucoswinThumb from '../assets/glaucoswin_thumb.jpg'
@@ -15,13 +15,13 @@ import hemorragiaIntracraniana from '../assets/hemorragiaIntracraniana.jpg'
 import tumorTireoide from '../assets/tumorTireoide.jpg'
 
 export const modelsInfo = [
-  /* {
+  {
     fullname: 'Segmentação de Angiograma Coronariano',
     alias: 'AngioCor',
     thumb: angiocorThumb,
     description:
       'O Modelo de Segmentação de Angiograma Coronariano é uma ferramenta projetada para auxiliar profissionais de saúde na análise de imagens médicas de angiogramas coronarianos. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos.',
-  }, */
+  },
   {
     fullname: 'Classificação de Glaucoma',
     alias: 'GlaucoSwin',
@@ -50,20 +50,22 @@ export const modelsInfo = [
     description:
       'O BTSwin é uma versão refinada do modelo Microsoft/Swin-Base-Patch4-Window7-224-in22k, projetado especificamente para a classificação de tumores cerebrais em imagens médicas. Com perda mínima de 0,0118 e acurácia de 99,49%, auxilia profissionais de saúde no diagnóstico, mas não substitui avaliação médica.',
   },
-  /* {
+]
+
+/* {
     fullname: 'Detecção de Fraturas Ósseas em Raios-X',
     alias: 'FractureCheck',
     thumb: fractureCheckThumb,
     description:
       'O "FractureCheck" é a solução inteligente para detectar fraturas ósseas em imagens de raio-X. Rápido, preciso e confiável, este produto simplifica o diagnóstico, tornando-o acessível a todos. Suas imagens, nossa expertise - a resposta em segundos.',
   }, */
-  /* {
+/* {
     fullname: 'detecção precoce do Alzheimer',
     alias: 'AlzDetect',
     thumb: AlzDetect,
     description:
       'O AlzDetect é uma ferramenta de análise de imagem para detecção precoce do Alzheimer. Carregando um modelo de rede neural, ele identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
-  }, */
+  },
   {
     fullname: 'Em Breve',
     alias: 'Em Breve',
@@ -113,3 +115,4 @@ export const modelsInfo = [
     description: '',
   },
 ]
+*/

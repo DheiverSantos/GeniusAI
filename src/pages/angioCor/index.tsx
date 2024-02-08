@@ -63,7 +63,7 @@ export default function AngioCor() {
   }, [navigate])
 
   useEffect(() => {
-    wakeUpApi(getApi)
+    wakeUpApi(getApi, 'SE-RegUNet 4GF')
   }, [])
 
   useEffect(() => {
