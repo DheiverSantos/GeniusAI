@@ -5,14 +5,14 @@ import glaucoswinThumb from '../assets/glaucoswin_thumb.jpg'
 import btswinThumb from '../assets/btswin_thumb.jpeg'
 /* import fractureCheckThumb from '../assets/fractureCheck_thumb.jpeg'
 import AlzDetect from '../assets/AlzDetect_thumb.jpg' */
-import PCOS from '../assets/PCOS.webp'
+/* import PCOS from '../assets/PCOS.webp'
 import catarata from '../assets/catarata.jpg'
 import pneumoniaAdulto from '../assets/pneumoniaAdulto.png'
 import pneumoniaInfantil from '../assets/pneumoniaInfantil.jpg'
 import cancerPulmão from '../assets/cancerPulmão.png'
 import cancerColoePulmão from '../assets/cancerColoePulmão.jpg'
 import hemorragiaIntracraniana from '../assets/hemorragiaIntracraniana.jpg'
-import tumorTireoide from '../assets/tumorTireoide.jpg'
+import tumorTireoide from '../assets/tumorTireoide.jpg' */
 
 export const modelsInfo = [
   {
