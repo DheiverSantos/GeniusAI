@@ -6,16 +6,29 @@ import { pictureStyles, inputStyles } from './style'
 interface InputImgProps {
   isResetImg: boolean
   setSelectedImage: (blob: Blob) => void
+  selectedImageBlob?: Blob | null
 }
 
 const InputImg: React.FC<InputImgProps> = ({
   isResetImg,
   setSelectedImage,
+  selectedImageBlob,
 }) => {
   const [imageSrc, setImageSrc] = useState<string | null>(null)
   const [openDialog, setOpenDialog] = useState<boolean>(false)
   const [tempFile, setTempFile] = useState<File | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (selectedImageBlob) {
+      const imageUrl = URL.createObjectURL(selectedImageBlob)
+      setImageSrc(imageUrl)
+
+      return () => {
+        URL.revokeObjectURL(imageUrl)
+      }
+    }
+  }, [selectedImageBlob])
 
   useEffect(() => {
     if (isResetImg) {
