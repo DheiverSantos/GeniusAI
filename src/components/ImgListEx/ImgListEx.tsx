@@ -7,12 +7,14 @@ import {
   Typography,
 } from '@mui/material'
 
+interface ImageItem {
+  img: string
+  title: string
+}
+
 interface ImageSelectorProps {
-  imageList: {
-    img: string
-    title: string
-  }[]
-  setSelectedImage: (blob: Blob | null) => void
+  imageList: ImageItem[]
+  setSelectedImage: (imageUrl: Blob | null) => void
 }
 
 export const ImgListEx: React.FC<ImageSelectorProps> = ({
@@ -22,11 +24,10 @@ export const ImgListEx: React.FC<ImageSelectorProps> = ({
   const handleSelectImage = async (imagePath: string) => {
     try {
       const response = await fetch(imagePath)
-      if (!response.ok) throw new Error('Network response was not ok.')
       const blob = await response.blob()
       setSelectedImage(blob)
     } catch (error) {
-      console.error('Error fetching image:', error)
+      console.error('Error converting image to blob:', error)
       setSelectedImage(null)
     }
   }
@@ -52,6 +53,7 @@ export const ImgListEx: React.FC<ImageSelectorProps> = ({
           <ImageListItem
             key={index}
             onClick={() => handleSelectImage(item.img)}
+            style={{ cursor: 'pointer' }}
           >
             <img
               src={item.img}
