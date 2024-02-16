@@ -99,7 +99,7 @@ const InputImg: React.FC<InputImgProps> = ({
               }}
             />
           ) : (
-            <span>Insira Imagem</span>
+            <span>Arraste aqui ou insira imagem</span>
           )}
         </Box>
         <input
