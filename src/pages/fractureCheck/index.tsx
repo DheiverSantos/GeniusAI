@@ -69,6 +69,7 @@ export default function FractureCheck() {
   const handleReset = async () => {
     setIsResetImg(true)
     setAnalise([])
+    setTimeout(() => setIsResetImg(false), 0)
   }
 
   return (

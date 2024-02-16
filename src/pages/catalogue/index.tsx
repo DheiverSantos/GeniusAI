@@ -1,7 +1,6 @@
 import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import Header from '../../components/header/Header'
 import { cardsSection, mainStyle } from '../catalogue/style'
-
 import CardFull from '../../components/cardFull/CardFull'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { useEffect } from 'react'

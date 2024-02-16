@@ -72,6 +72,7 @@ export default function Abus() {
   const handleReset = async () => {
     setIsResetImg(true)
     setAnalise([])
+    setTimeout(() => setIsResetImg(false), 0)
   }
 
   return (
