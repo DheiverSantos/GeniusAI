@@ -25,6 +25,8 @@ import {
 import getApi from '../../API/getASCD.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
+import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
+import imgExTest01 from '../../assets/ascd_thumb.jpg'
 
 const theme = createTheme({
   palette: {
@@ -75,6 +77,12 @@ export default function ASCD() {
     setTimeout(() => setIsResetImg(false), 0)
   }
 
+  const exampleImageList = [
+    { img: imgExTest01, title: 'Exemplo 1' },
+    { img: imgExTest01, title: 'Exemplo 2' },
+    { img: imgExTest01, title: 'Exemplo 3' },
+  ]
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -87,6 +95,10 @@ export default function ASCD() {
         <Header />
         <Intro
           titleModel={`${modelsInfo[3].alias} - ${modelsInfo[3].fullname}`}
+        />
+        <ImgListEx
+          imageList={exampleImageList}
+          setSelectedImage={setSelectedImage}
         />
         <Box sx={divAnaliseStyle}>
           <Box
@@ -111,6 +123,7 @@ export default function ASCD() {
             <InputImg
               isResetImg={isResetImg}
               setSelectedImage={setSelectedImage}
+              selectedImageBlob={selectedImage}
             />
           </Box>
           <Box

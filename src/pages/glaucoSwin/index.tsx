@@ -26,7 +26,7 @@ import getApi from '../../API/getGlaucoSwin'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
-import glaucoImg01 from '../../assets/glaucoswin_thumb.jpg'
+import imgExTest01 from '../../assets/glaucoswin_thumb.jpg'
 
 const theme = createTheme({
   palette: {
@@ -78,8 +78,9 @@ export default function GlaucoSwin() {
   }
 
   const exampleImageList = [
-    { img: glaucoImg01, title: 'Exemplo 1' },
-    { img: glaucoImg01, title: 'Exemplo 2' },
+    { img: imgExTest01, title: 'Exemplo 1' },
+    { img: imgExTest01, title: 'Exemplo 2' },
+    { img: imgExTest01, title: 'Exemplo 3' },
   ]
 
   return (
@@ -122,6 +123,7 @@ export default function GlaucoSwin() {
             <InputImg
               isResetImg={isResetImg}
               setSelectedImage={setSelectedImage}
+              selectedImageBlob={selectedImage}
             />
           </Box>
           <Box

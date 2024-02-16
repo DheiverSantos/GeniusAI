@@ -25,6 +25,8 @@ import {
 import getApi from '../../API/getBTSwin.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
+import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
+import imgExTest01 from '../../assets/btswin_thumb.jpeg'
 
 const theme = createTheme({
   palette: {
@@ -75,6 +77,12 @@ export default function BTSwin() {
     setTimeout(() => setIsResetImg(false), 0)
   }
 
+  const exampleImageList = [
+    { img: imgExTest01, title: 'Exemplo 1' },
+    { img: imgExTest01, title: 'Exemplo 2' },
+    { img: imgExTest01, title: 'Exemplo 3' },
+  ]
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -87,6 +95,10 @@ export default function BTSwin() {
         <Header />
         <Intro
           titleModel={`${modelsInfo[4].alias} - ${modelsInfo[4].fullname}`}
+        />
+        <ImgListEx
+          imageList={exampleImageList}
+          setSelectedImage={setSelectedImage}
         />
         <Box sx={divAnaliseStyle}>
           <Box
@@ -111,6 +123,7 @@ export default function BTSwin() {
             <InputImg
               isResetImg={isResetImg}
               setSelectedImage={setSelectedImage}
+              selectedImageBlob={selectedImage}
             />
           </Box>
           <Box

@@ -37,18 +37,25 @@ export const ImgListEx: React.FC<ImageSelectorProps> = ({
       sx={{
         overflowY: 'auto',
         maxHeight: 300,
-        width: '100%',
+        width: '70%',
         my: 2,
         display: 'flex',
-        flexDirection: 'column', // Adicionado para organizar o título acima da lista
+        flexDirection: 'column',
         alignItems: 'center',
       }}
     >
-      <Typography variant="h6" sx={{ mb: 2, color: '#1d4ed8' }}>
+      <Typography
+        variant="h6"
+        sx={{ mb: 2, color: '#1d4ed8', fontWeight: 'bold' }}
+      >
         {' '}
         Exemplos de Teste
       </Typography>
-      <ImageList gap={8} sx={{ width: 'auto', height: 'auto' }}>
+      <ImageList
+        gap={8}
+        cols={imageList.length}
+        sx={{ width: 'auto', height: 'auto' }}
+      >
         {imageList.map((item, index) => (
           <ImageListItem
             key={index}

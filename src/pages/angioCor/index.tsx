@@ -30,6 +30,8 @@ import {
 } from './style'
 import { modelsInfo } from '../../utils/modelsInfo'
 import { wakeUpApi } from '../../utils/wakeUpApi'
+import imgExTest01 from '../../assets/angiocor_thumb.jpeg'
+import { ImgListEx } from '../../components/ImgListEx/ImgListEx'
 
 const theme = createTheme({
   palette: {
@@ -118,6 +120,11 @@ export default function AngioCor() {
     'UNet3+',
   ]
 
+  const exampleImageList = [
+    { img: imgExTest01, title: 'Exemplo 1' },
+    { img: imgExTest01, title: 'Exemplo 2' },
+  ]
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -130,6 +137,10 @@ export default function AngioCor() {
         <Header />
         <Intro
           titleModel={`${modelsInfo[0].alias} - ${modelsInfo[0].fullname}`}
+        />
+        <ImgListEx
+          imageList={exampleImageList}
+          setSelectedImage={setSelectedImage}
         />
         <Box sx={divAnaliseStyle}>
           <Box
@@ -190,6 +201,7 @@ export default function AngioCor() {
             <InputImg
               isResetImg={isResetImg}
               setSelectedImage={setSelectedImage}
+              selectedImageBlob={selectedImage}
             />
           </Box>
           <Box
