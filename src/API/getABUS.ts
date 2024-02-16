@@ -5,7 +5,7 @@ interface ClassificationResult {
 
 type ApiResponse = ClassificationResult[]
 const LINK_API =
-  'https://api-inference.huggingface.co/models/DHEIVER/Modelo-Avancado-de-Ultrassom-de-Mama'
+  'https://api-inference.huggingface.co/models/DHEIVER/finetuned-BreastCancer-Classification'
 
 async function getABUS(imageBlob: Blob): Promise<ApiResponse> {
   if (!imageBlob) {

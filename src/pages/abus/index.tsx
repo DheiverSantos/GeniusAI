@@ -27,6 +27,7 @@ import { modelsInfo } from '../../utils/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/abus_thumb.jpeg'
+import { formatLabel } from '../../utils/formatLabels.ts'
 
 const theme = createTheme({
   palette: {
@@ -156,34 +157,35 @@ export default function Abus() {
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Benign: ${
-                    analise.length > 0 && analise[0]?.score
-                      ? `${Math.round(analise[0]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[0]?.score
-                        ? Math.round(analise[0]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Malignant: ${
-                    analise.length > 0 && analise[1]?.score
-                      ? `${Math.round(analise[1]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[1]?.score
-                        ? Math.round(analise[1]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
+                  {analise.length === 0
+                    ? ['Benign', 'Malignant'].map((label, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{`${label}: `}</Typography>
+                          <LinearProgress variant="determinate" value={0} />
+                        </Box>
+                      ))
+                    : ['benign', 'malignant'].map((label, index) => {
+                        const item = analise.find(
+                          (item) => item.label === label,
+                        )
+                        return (
+                          <Box key={index} sx={{ width: '100%' }}>
+                            <Typography>{`${formatLabel(label)}: ${
+                              item?.score
+                                ? `${Math.round(item.score * 1000) / 10}%`
+                                : ''
+                            }`}</Typography>
+                            <LinearProgress
+                              variant="determinate"
+                              value={
+                                item?.score
+                                  ? Math.round(item.score * 1000) / 10
+                                  : 0
+                              }
+                            />
+                          </Box>
+                        )
+                      })}
                 </Box>
               </Box>
             </Box>
