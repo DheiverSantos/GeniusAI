@@ -27,6 +27,7 @@ import { modelsInfo } from '../../utils/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/ascd_thumb.jpg'
+import { formatLabel } from '../../utils/formatLabels.ts'
 
 const theme = createTheme({
   palette: {
@@ -145,6 +146,7 @@ export default function ASCD() {
                 Limpar
               </Button>
             </Box>
+
             <Box sx={boxResultStyles}>
               <Box
                 sx={{
@@ -156,79 +158,36 @@ export default function ASCD() {
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Melanocytic-nevi: ${
-                    analise.length > 0 && analise[0]?.score
-                      ? `${Math.round(analise[0]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[0]?.score
-                        ? Math.round(analise[0]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Melanoma: ${
-                    analise.length > 0 && analise[1]?.score
-                      ? `${Math.round(analise[1]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[1]?.score
-                        ? Math.round(analise[1]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Benign-keratosis-like-lesi: ${
-                    analise.length > 0 && analise[2]?.score
-                      ? `${Math.round(analise[2]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[2]?.score
-                        ? Math.round(analise[2]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Basal-cell-carcinoma: ${
-                    analise.length > 0 && analise[3]?.score
-                      ? `${Math.round(analise[3]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[3]?.score
-                        ? Math.round(analise[3]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Actinic-keratoses: ${
-                    analise.length > 0 && analise[4]?.score
-                      ? `${Math.round(analise[4]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[4]?.score
-                        ? Math.round(analise[4]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
+                  {analise.length === 0
+                    ? [
+                        'Melanocytic-nevi',
+                        'Melanoma',
+                        'Benign-keratosis-like-lesions',
+                        'Basal-cell-carcinoma',
+                        'Actinic-keratoses',
+                      ].map((label, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{label}: </Typography>
+                          <LinearProgress variant="determinate" value={0} />
+                        </Box>
+                      ))
+                    : analise.map((item, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{`${formatLabel(item.label)}: ${
+                            item.score
+                              ? `${Math.round(item.score * 1000) / 10}%`
+                              : ''
+                          }`}</Typography>
+                          <LinearProgress
+                            variant="determinate"
+                            value={
+                              item.score
+                                ? Math.round(item.score * 1000) / 10
+                                : 0
+                            }
+                          />
+                        </Box>
+                      ))}
                 </Box>
               </Box>
             </Box>

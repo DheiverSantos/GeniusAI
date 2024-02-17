@@ -8,7 +8,7 @@ interface ResultScreenProps {
   isSend: boolean
 }
 
-const ResultScreen: React.FC<ResultScreenProps> = ({
+export const ResultScreenWithImage: React.FC<ResultScreenProps> = ({
   isResetImg,
   urlImgAnalise,
   isSend,
@@ -53,5 +53,3 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
     </Box>
   )
 }
-
-export default ResultScreen

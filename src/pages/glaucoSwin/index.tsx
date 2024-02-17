@@ -27,6 +27,7 @@ import { modelsInfo } from '../../utils/modelsInfo'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/glaucoswin_thumb.jpg'
+import { formatLabel } from '../../utils/formatLabels.ts'
 
 const theme = createTheme({
   palette: {
@@ -156,34 +157,30 @@ export default function GlaucoSwin() {
                 }}
               >
                 <Box sx={{ width: '100%' }}>
-                  <Typography>{`Glaucoma: ${
-                    analise.length > 0 && analise[0]?.score
-                      ? `${Math.round(analise[0]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[0]?.score
-                        ? Math.round(analise[0]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
-                </Box>
-                <Box sx={{ width: '100%' }}>
-                  <Typography>{`Non-glaucoma: ${
-                    analise.length > 0 && analise[1]?.score
-                      ? `${Math.round(analise[1]?.score * 1000) / 10}%`
-                      : ''
-                  }`}</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={
-                      analise.length > 0 && analise[1]?.score
-                        ? Math.round(analise[1]?.score * 1000) / 10
-                        : 0
-                    }
-                  />
+                  {analise.length === 0
+                    ? ['Glaucoma', 'Non-glaucoma'].map((label, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{label}: </Typography>
+                          <LinearProgress variant="determinate" value={0} />
+                        </Box>
+                      ))
+                    : analise.map((item, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{`${formatLabel(item.label)}: ${
+                            item.score
+                              ? `${Math.round(item.score * 1000) / 10}%`
+                              : ''
+                          }`}</Typography>
+                          <LinearProgress
+                            variant="determinate"
+                            value={
+                              item.score
+                                ? Math.round(item.score * 1000) / 10
+                                : 0
+                            }
+                          />
+                        </Box>
+                      ))}
                 </Box>
               </Box>
             </Box>

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Login from './pages/login'
-import Catalogue from './pages/catalogue'
+import Home from './pages/home'
 import GlaucoSwin from './pages/glaucoSwin'
 import Abus from './pages/abus'
 import BTSwin from './pages/btswin'
@@ -13,7 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/Home" element={<Catalogue />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/AngioCor" element={<AngioCor />} />
       <Route path="/GlaucoSwin" element={<GlaucoSwin />} />
       <Route path="/BTSwin" element={<BTSwin />} />

@@ -15,7 +15,7 @@ import {
   Box,
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg'
-import ResultScreen from '../../components/resultScreen/ResultScreen'
+import { ResultScreenWithImage } from '../../components/ResultScreenWithImage/ResultScreenWithImage'
 import getApi from '../../API/getAngioCor'
 import Header from '../../components/header/Header'
 import Intro from '../../components/Intro'
@@ -227,7 +227,7 @@ export default function AngioCor() {
                 Baixar
               </Button>
             </Box>
-            <ResultScreen
+            <ResultScreenWithImage
               isResetImg={isResetImg}
               urlImgAnalise={analise[1] ?? ''}
               isSend={isSend}

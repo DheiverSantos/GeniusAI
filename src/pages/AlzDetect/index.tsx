@@ -8,6 +8,8 @@ import {
   createTheme,
   Button,
   Box,
+  Typography,
+  LinearProgress,
 } from '@mui/material'
 import InputImg from '../../components/inputImg/InputImg.tsx'
 import Header from '../../components/header/Header.tsx'
@@ -18,11 +20,14 @@ import {
   mainStyle,
   boxLeftStyle,
   boxRigthStyle,
+  boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
-import getApi from './api/api.ts'
+import getApi from '../../API/getAlzDetect.ts'
 import { modelsInfo } from '../../utils/modelsInfo.ts'
-import Explication from '../../components/explication/Explication.tsx'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
+import { formatLabel } from '../../utils/formatLabels.ts'
+import imgExTest01 from '../../assets/AlzDetect_thumb.jpg'
+import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 
 const theme = createTheme({
   palette: {
@@ -30,15 +35,19 @@ const theme = createTheme({
   },
 })
 
-type AnaliseType = string | null
+interface ClassificationResult {
+  score: number
+  label: string
+}
+
+type AnaliseType = ClassificationResult[] | []
 
 export default function AlzDetect() {
   const [isResetImg, setIsResetImg] = useState(false)
-  const [analise, setAnalise] = useState<AnaliseType>(null)
+  const [analise, setAnalise] = useState<AnaliseType>([])
   const [selectedImage, setSelectedImage] = useState<Blob | null>(null)
   const navigate = useNavigate()
   const downloadRef = useRef<HTMLAnchorElement>(null)
-  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') !== 'true') {
@@ -51,9 +60,8 @@ export default function AlzDetect() {
   }, [])
 
   const handleSend = async () => {
-    setAnalise(null)
+    setAnalise([])
     setIsResetImg(false)
-    setIsLoading(true)
 
     if (selectedImage) {
       const result = await getApi(selectedImage)
@@ -61,14 +69,20 @@ export default function AlzDetect() {
       setAnalise(result as AnaliseType)
     }
 
-    setIsLoading(false)
     setSelectedImage(null)
   }
 
   const handleReset = async () => {
     setIsResetImg(true)
-    setAnalise(null)
+    setAnalise([])
+    setTimeout(() => setIsResetImg(false), 0)
   }
+
+  const exampleImageList = [
+    { img: imgExTest01, title: 'Exemplo 1' },
+    { img: imgExTest01, title: 'Exemplo 2' },
+    { img: imgExTest01, title: 'Exemplo 3' },
+  ]
 
   return (
     <ThemeProvider theme={theme}>
@@ -82,6 +96,10 @@ export default function AlzDetect() {
         <Header />
         <Intro
           titleModel={`${modelsInfo[6].alias} - ${modelsInfo[6].fullname}`}
+        />
+        <ImgListEx
+          imageList={exampleImageList}
+          setSelectedImage={setSelectedImage}
         />
         <Box sx={divAnaliseStyle}>
           <Box
@@ -106,6 +124,7 @@ export default function AlzDetect() {
             <InputImg
               isResetImg={isResetImg}
               setSelectedImage={setSelectedImage}
+              selectedImageBlob={selectedImage}
             />
           </Box>
           <Box
@@ -127,10 +146,49 @@ export default function AlzDetect() {
                 Limpar
               </Button>
             </Box>
-            <Explication
-              explicationAnalise={analise || ''}
-              isLoading={isLoading}
-            />
+            <Box sx={boxResultStyles}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '80%',
+                  height: '50%',
+                  justifyContent: 'space-evenly',
+                }}
+              >
+                <Box sx={{ width: '100%' }}>
+                  {analise.length === 0
+                    ? [
+                        'Very_Mild_Demented',
+                        'Mild_Demented',
+                        'Non_Demented',
+                        'Moderate_Demented',
+                      ].map((label, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{label}: </Typography>
+                          <LinearProgress variant="determinate" value={0} />
+                        </Box>
+                      ))
+                    : analise.map((item, index) => (
+                        <Box key={index} sx={{ width: '100%' }}>
+                          <Typography>{`${formatLabel(item.label)}: ${
+                            item.score
+                              ? `${Math.round(item.score * 1000) / 10}%`
+                              : ''
+                          }`}</Typography>
+                          <LinearProgress
+                            variant="determinate"
+                            value={
+                              item.score
+                                ? Math.round(item.score * 1000) / 10
+                                : 0
+                            }
+                          />
+                        </Box>
+                      ))}
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Box>
