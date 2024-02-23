@@ -57,13 +57,13 @@ export const modelsInfo = [
     description:
       'O AlzDetect é uma ferramenta de análise de imagem para detecção precoce do Alzheimer. Carregando um modelo de rede neural, ele identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
   },
-  {
+  /* {
     fullname: 'Detecção de Fraturas Ósseas em Raios-X',
     alias: 'FractureCheck',
     thumb: fractureCheckThumb,
     description:
       'O "FractureCheck" é a solução inteligente para detectar fraturas ósseas em imagens de raio-X. Rápido, preciso e confiável, este produto simplifica o diagnóstico, tornando-o acessível a todos. Suas imagens, nossa expertise - a resposta em segundos.',
-  },
+  }, */
 ]
 
 /* 
