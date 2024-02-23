@@ -213,7 +213,7 @@ export default function AngioCor() {
           >
             {/* Side rigth */}
             <Box sx={boxRigthStyle}>
-              <Typography variant="body1">{`Status da Análise : ${
+              <Typography variant="body1">{`Anormalidade: ${
                 analise?.[2]?.label ?? ''
               }`}</Typography>
 

@@ -95,7 +95,7 @@ export default function AlzDetect() {
       <Box sx={mainStyle}>
         <Header />
         <Intro
-          titleModel={`${modelsInfo[6].alias} - ${modelsInfo[6].fullname}`}
+          titleModel={`${modelsInfo[5].alias} - ${modelsInfo[5].fullname}`}
         />
         <ImgListEx
           imageList={exampleImageList}
