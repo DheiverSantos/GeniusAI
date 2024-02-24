@@ -16,7 +16,7 @@ interface CardFullProps {
 export default function CardFull({ modelsInfoProps }: CardFullProps) {
   const navigate = useNavigate()
   return (
-    <Card sx={{ maxWidth: 345, minWidth: 345, marginBottom: '2rem' }}>
+    <Card sx={{ maxWidth: 350, minWidth: 300, marginBottom: '2rem' }}>
       <CardActionArea onClick={() => navigate(`/${modelsInfoProps.alias}`)}>
         <CardMedia
           component="img"

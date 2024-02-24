@@ -51,12 +51,12 @@ function Hero() {
 
             <div className="text-stats-container">
               <p>10+</p>
-              <p>Especialidade médicas</p>
+              <p>Especialidades</p>
             </div>
 
             <div className="text-stats-container">
               <p>30+</p>
-              <p>Modelos de IA</p>
+              <p>Modelos</p>
             </div>
           </div>
         </div>

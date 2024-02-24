@@ -5,12 +5,6 @@ export const theme = createTheme({
     primary: {
       main: '#1d4ed8',
     },
-    secondary: {
-      main: '#10b981',
-    },
-    warning: {
-      main: '#facc15',
-    },
     background: {
       default: '#f3f4f6',
       paper: '#ffffff',
@@ -35,8 +29,8 @@ export const mainStyle = {
 
 export const btnStyles = {
   width: {
-    xs: '6rem',
-    sm: '7rem',
+    xs: '7rem',
+    sm: '7.2rem',
     md: '7.5rem',
     lg: '8rem',
     xl: '8.5rem',
