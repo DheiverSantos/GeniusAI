@@ -1,6 +1,6 @@
 {
   "name": "genius-ai",
-  "homepage": "https://www.genius-ai.app.br/", 
+  "homepage": "https://www.genius-ai.app.br/",
   "private": true,
   "version": "1.0.0",
   "type": "module",
