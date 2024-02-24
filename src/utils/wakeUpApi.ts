@@ -1,14 +1,13 @@
 import imgFake from '../../src/assets/logo.png'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// Função sleep
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const wakeUpApi = async (getAnalise: any, model?: string) => {
   let attempts = 0
-  const maxAttempts = 5 // Número máximo de tentativas
+  const maxAttempts = 5
   let result: any[] = []
-  const delayBetweenAttempts = 1000 // Delay em milissegundos (1000ms = 1 segundo)
+  const delayBetweenAttempts = 1000
 
   while (attempts < maxAttempts && result.length === 0) {
     try {
@@ -28,7 +27,7 @@ export const wakeUpApi = async (getAnalise: any, model?: string) => {
     }
 
     attempts += 1
-    // Aguarda por um delay antes da próxima tentativa, se ainda houver tentativas restantes
+
     if (attempts < maxAttempts && result.length === 0) {
       await sleep(delayBetweenAttempts)
     }
