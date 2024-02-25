@@ -20,7 +20,7 @@ import {
   boxRigthStyle,
 } from '../../styles/StyleGlobal.ts'
 import getApi from './api/api.ts'
-import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import Explication from '../../components/explication/Explication.tsx'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 
@@ -82,9 +82,7 @@ export default function FractureCheck() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[5].alias} - ${modelsInfo[5].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[5].fullname}`} />
         <Box sx={divAnaliseStyle}>
           <Box
             sx={{

@@ -2,7 +2,7 @@ import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import Header from '../../components/header/Header'
 import { cardsSection, mainStyle } from '../home/style'
 import CardFull from '../../components/cardFull/CardFull'
-import { modelsInfo } from '../../utils/modelsInfo'
+import { modelsInfo } from '../../DB/modelsInfo'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Hero from '../../components/Hero/Hero'
@@ -42,6 +42,7 @@ export default function Home() {
               <CardFull
                 key={model.alias}
                 modelsInfoProps={{
+                  fullname: model.fullname,
                   thumb: model.thumb,
                   alias: model.alias,
                   description: model.description,

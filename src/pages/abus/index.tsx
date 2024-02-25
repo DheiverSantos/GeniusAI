@@ -23,7 +23,7 @@ import {
   boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getABUS.ts'
-import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/abus_thumb.jpeg'
@@ -94,9 +94,7 @@ export default function Abus() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[2].alias} - ${modelsInfo[2].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[2].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}

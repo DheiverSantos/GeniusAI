@@ -23,7 +23,7 @@ import {
   boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getASCD.ts'
-import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/ascd_thumb.jpg'
@@ -94,9 +94,7 @@ export default function ASCD() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[3].alias} - ${modelsInfo[3].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[3].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}

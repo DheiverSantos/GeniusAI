@@ -16,46 +16,46 @@ import tumorTireoide from '../assets/tumorTireoide.jpg' */
 
 export const modelsInfo = [
   {
-    fullname: 'Segmentação de Angiograma Coronariano',
+    fullname: 'Processador de Angiografia',
     alias: 'AngioCor',
     thumb: angiocorThumb,
     description:
-      'O Modelo de Segmentação de Angiograma Coronariano é uma ferramenta projetada para auxiliar profissionais de saúde na análise de imagens médicas de angiogramas coronarianos. Utilizando modelos pré-treinados de inteligência artificial, o aplicativo oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos.',
+      'Oferece segmentação avançada e detecção de possíveis doenças nos vasos sanguíneos imagens médicas de angiogramas coronarianos',
   },
   {
-    fullname: 'Classificação de Glaucoma',
+    fullname: 'Detector de Glaucoma',
     alias: 'GlaucoSwin',
     thumb: glaucoswinThumb,
     description:
-      'O GlaucoSwin é um modelo de IA especializado em identificar glaucoma em imagens de fundo de olho retinal. Alcança uma impressionante acurácia de 98,2% na classificação de imagens como glaucoma ou não glaucoma. Use-o para uma detecção rápida e precisa de glaucoma em imagens médicas.',
+      'Use-o para uma detecção rápida e precisa de glaucoma em imagens médicas, classificando imagens como glaucoma ou não glaucoma.',
   },
   {
-    fullname: 'Advanced Breast Ultrasound',
+    fullname: 'Classificador de Tumores em Ultrassom Mamário',
     alias: 'ABUS',
     thumb: abusThumb,
     description:
-      'O modelo ABUS (Advanced Breast Ultrasound) é um modelo de aprendizado profundo projetado para a classificação de imagens de ultrassom de mama. Ele demonstra um desempenho sólido, com uma perda mínima de 0.0398 e uma impressionante precisão de 98.82%. É adequado para tarefas que envolvem a classificação precisa de imagens de ultrassom mamário, como a detecção de anomalias ou triagem inicial.',
+      'Realiza a classificação de ultrassom de mama, adequado para tarefas que envolvem a classificação precisa de imagens de ultrassom mamário, como a detecção de anomalias ou triagem inicial.',
   },
   {
-    fullname: 'Advanced Skin Cancer Diagnosis',
+    fullname: 'Classificador de Câncer de Pele',
     alias: 'ASCD',
     thumb: ascdThumb,
     description:
-      'O modelo Diagnóstico Avançado de Câncer de Pele (DACP) é um modelo de aprendizado profundo projetado para a classificação de imagens de câncer de pele. Ele alcança uma precisão de 72,75% com uma perda de 0,7695. Mais detalhes são necessários para compreender totalmente os usos pretendidos e as limitações específicas deste modelo.',
+      'Modelo de aprendizado profundo projetado para a classificação de imagens de câncer de pele.',
   },
   {
-    fullname: 'BrainTumor-TransformerSwin',
+    fullname: 'Classificador de Tumores Cerebrais',
     alias: 'BTSwin',
     thumb: btswinThumb,
     description:
-      'O BTSwin é uma versão refinada do modelo Microsoft/Swin-Base-Patch4-Window7-224-in22k, projetado especificamente para a classificação de tumores cerebrais em imagens médicas. Com perda mínima de 0,0118 e acurácia de 99,49%, auxilia profissionais de saúde no diagnóstico, mas não substitui avaliação médica.',
+      'Projetado especificamente para a classificação de tumores cerebrais em imagens médicas.',
   },
   {
-    fullname: 'detecção precoce do Alzheimer',
+    fullname: 'Detecção Alzheimer',
     alias: 'AlzDetect',
     thumb: AlzDetect,
     description:
-      'O AlzDetect é uma ferramenta de análise de imagem para detecção precoce do Alzheimer. Carregando um modelo de rede neural, ele identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
+      'Identifica sintomas relacionados ao Alzheimer em exames médicos, proporcionando resultados rápidos e precisos.',
   },
 ]
 

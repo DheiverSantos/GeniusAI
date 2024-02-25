@@ -23,7 +23,7 @@ import {
   boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getAlzDetect.ts'
-import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { formatLabel } from '../../utils/formatLabels.ts'
 import imgExTest01 from '../../assets/AlzDetect_thumb.jpg'
@@ -94,9 +94,7 @@ export default function AlzDetect() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[5].alias} - ${modelsInfo[5].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[5].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 interface CardFullProps {
   modelsInfoProps: {
+    fullname: string
     thumb: string
     alias: string
     description: string
@@ -31,7 +32,7 @@ export default function CardFull({ modelsInfoProps }: CardFullProps) {
             component="div"
             sx={{ color: '#1d4ed8' }}
           >
-            {modelsInfoProps.alias}
+            {modelsInfoProps.fullname}
           </Typography>
           <Typography variant="body2" align="justify">
             {modelsInfoProps.description}

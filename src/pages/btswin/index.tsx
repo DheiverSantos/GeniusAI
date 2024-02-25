@@ -23,7 +23,7 @@ import {
   boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getBTSwin.ts'
-import { modelsInfo } from '../../utils/modelsInfo.ts'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/btswin_thumb.jpeg'
@@ -94,9 +94,7 @@ export default function BTSwin() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[4].alias} - ${modelsInfo[4].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[4].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}

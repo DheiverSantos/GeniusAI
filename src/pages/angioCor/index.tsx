@@ -28,7 +28,7 @@ import {
   boxLeftStyle,
   boxRigthStyle,
 } from './style'
-import { modelsInfo } from '../../utils/modelsInfo'
+import { modelsInfo } from '../../DB/modelsInfo'
 import { wakeUpApi } from '../../utils/wakeUpApi'
 import imgExTest01 from '../../assets/angiocor_thumb.jpeg'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx'
@@ -135,9 +135,7 @@ export default function AngioCor() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[0].alias} - ${modelsInfo[0].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[0].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}

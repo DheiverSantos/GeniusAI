@@ -23,7 +23,7 @@ import {
   boxResultStyles,
 } from '../../styles/StyleGlobal.ts'
 import getApi from '../../API/getGlaucoSwin'
-import { modelsInfo } from '../../utils/modelsInfo'
+import { modelsInfo } from '../../DB/modelsInfo.ts'
 import { wakeUpApi } from '../../utils/wakeUpApi.ts'
 import { ImgListEx } from '../../components/ImgListEx/ImgListEx.tsx'
 import imgExTest01 from '../../assets/glaucoswin_thumb.jpg'
@@ -94,9 +94,7 @@ export default function GlaucoSwin() {
       ></a>{' '}
       <Box sx={mainStyle}>
         <Header />
-        <Intro
-          titleModel={`${modelsInfo[1].alias} - ${modelsInfo[1].fullname}`}
-        />
+        <Intro titleModel={`${modelsInfo[1].fullname}`} />
         <ImgListEx
           imageList={exampleImageList}
           setSelectedImage={setSelectedImage}
