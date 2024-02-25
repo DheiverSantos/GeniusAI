@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import App from './App' // Presumo que o caminho esteja correto e não precise da extensão .tsx
+import App from './App'
 import './styles/index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
