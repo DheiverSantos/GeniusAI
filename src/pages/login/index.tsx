@@ -7,10 +7,14 @@ import {
   Alert,
   Typography,
   Box,
+  Grid,
+  Link,
   Button,
   Container,
   CssBaseline,
   TextField,
+  FormControlLabel,
+  Checkbox,
   ThemeProvider,
   createTheme,
 } from '@mui/material'
@@ -86,6 +90,7 @@ export default function Login() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 borderRadius: '0.4rem',
+                height: '3.5rem',
               }}
             >
               <Box
@@ -105,10 +110,26 @@ export default function Login() {
                 Entrar com o Google
               </Typography>
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <hr style={{ flexGrow: 1, margin: '0 10px', border: '0.5px solid #000', opacity: 0.5 }} />
+            <Box
+              sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem' }}
+            >
+              <hr
+                style={{
+                  flexGrow: 1,
+                  margin: '0 10px',
+                  border: '0.5px solid #000',
+                  opacity: 0.5,
+                }}
+              />
               <Typography variant="h6">Ou, entre com seu email</Typography>
-              <hr style={{ flexGrow: 1, margin: '0 10px', border: '0.5px solid #000', opacity: 0.5 }} />
+              <hr
+                style={{
+                  flexGrow: 1,
+                  margin: '0 10px',
+                  border: '0.5px solid #000',
+                  opacity: 0.5,
+                }}
+              />
             </Box>
             <TextField
               margin="normal"
@@ -135,6 +156,19 @@ export default function Login() {
               autoComplete="current-password"
               onChange={handlePasswordChange}
             />
+            <Grid container sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+              <Grid item>
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
+                  label="Manter Conectado"
+                />
+              </Grid>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+            </Grid>
             <Button
               type="submit"
               fullWidth
@@ -144,6 +178,12 @@ export default function Login() {
             >
               Entrar
             </Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Link href="#" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Box>
+
             {/* <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
               <MuiLink
                 href="https://wa.me/message/RH3MIXPLWDZEN1"
