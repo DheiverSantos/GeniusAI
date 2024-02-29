@@ -2,8 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import { validateLogin } from '../../auth/users'
 import logo from '../../assets/logo.png'
 import { useState, ChangeEvent, FormEvent } from 'react'
+import GoogleIcon from '@mui/icons-material/Google'
 import {
   Alert,
+  Typography,
   Box,
   Button,
   Container,
@@ -75,6 +77,39 @@ export default function Login() {
               mx: { xs: 6, sm: 2, md: 1 },
             }}
           >
+            <Box
+              sx={{
+                display: 'flex',
+                backgroundColor: '#dc2626',
+                color: 'white',
+                padding: '1rem',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                borderRadius: '0.4rem',
+              }}
+            >
+              <Box
+                sx={{
+                  paddingLeft: '1rem',
+                  borderRight: '1px solid white',
+                  width: '4rem',
+                  height: '1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'left',
+                }}
+              >
+                <GoogleIcon />
+              </Box>
+              <Typography variant="h6" sx={{ paddingRight: '2rem' }}>
+                Entrar com o Google
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <hr style={{ flexGrow: 1, margin: '0 10px', border: '0.5px solid #000', opacity: 0.5 }} />
+              <Typography variant="h6">Ou, entre com seu email</Typography>
+              <hr style={{ flexGrow: 1, margin: '0 10px', border: '0.5px solid #000', opacity: 0.5 }} />
+            </Box>
             <TextField
               margin="normal"
               required
