@@ -2,6 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import { validateLogin } from '../../auth/users'
 import logo from '../../assets/logo.png'
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
+import IconButton from '@mui/material/IconButton'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import { InputAdornment } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google'
 import {
   Alert,
@@ -31,6 +35,7 @@ export default function Login() {
   const [isAuth, setIsAuth] = useState(false)
   const [loginAttempted, setLoginAttempted] = useState(false)
   const [emailError, setEmailError] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -46,6 +51,10 @@ export default function Login() {
     setEmail(e.target.value)
     setEmailError(false)
   }
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
@@ -165,11 +174,21 @@ export default function Login() {
               name="password"
               value={password}
               label="Senha"
-              type="password"
+              type={showPassword ? 'text' : 'password'} 
               id="password"
               autoComplete="current-password"
               onChange={handlePasswordChange}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleTogglePasswordVisibility}>
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
+                
             <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
               <Box>
                 <FormControlLabel
