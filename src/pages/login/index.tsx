@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { validateLogin } from '../../auth/users'
 import logo from '../../assets/logo.png'
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import GoogleIcon from '@mui/icons-material/Google'
 import {
   Alert,
@@ -33,6 +33,15 @@ export default function Login() {
   const [emailError, setEmailError] = useState(false)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const localStorageLogin = localStorage.getItem('isLogin');
+    if (localStorageLogin) {
+      const { email, password } = JSON.parse(localStorageLogin);
+      setEmail(email);
+      setPassword(password);
+    }
+  }, []);
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
     setEmailError(false)
@@ -51,10 +60,15 @@ export default function Login() {
     const authenticated = validateLogin(email, password)
     setIsAuth(authenticated)
     setLoginAttempted(true)
+
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
       localStorage.setItem('isLogin', JSON.stringify({ email, password }));
+
       navigate('/Home')
+
+      setEmail('')
+      setPassword('')
     }
   }
 
