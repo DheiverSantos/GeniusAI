@@ -1,17 +1,26 @@
 import { useNavigate } from 'react-router-dom'
 import { validateLogin } from '../../auth/users'
 import logo from '../../assets/logo.png'
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
+import IconButton from '@mui/material/IconButton'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import {
+  InputAdornment,
   Alert,
+  Typography,
   Box,
+  Link,
   Button,
   Container,
   CssBaseline,
   TextField,
+  FormControlLabel,
+  Checkbox,
   ThemeProvider,
   createTheme,
 } from '@mui/material'
+import GoogleIcon from '@mui/icons-material/Google'
 import { isLoginFormValid, isValidEmail } from '../../utils/validateFormLogin'
 
 const theme = createTheme({
@@ -26,11 +35,25 @@ export default function Login() {
   const [isAuth, setIsAuth] = useState(false)
   const [loginAttempted, setLoginAttempted] = useState(false)
   const [emailError, setEmailError] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const localStorageLogin = localStorage.getItem('dataLogin')
+    if (localStorageLogin) {
+      const { email, password } = JSON.parse(localStorageLogin)
+      setEmail(email)
+      setPassword(password)
+    }
+  }, [])
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
     setEmailError(false)
+  }
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword)
   }
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,9 +69,15 @@ export default function Login() {
     const authenticated = validateLogin(email, password)
     setIsAuth(authenticated)
     setLoginAttempted(true)
+
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
+      localStorage.setItem('dataLogin', JSON.stringify({ email, password }))
+
       navigate('/Home')
+
+      setEmail('')
+      setPassword('')
     }
   }
 
@@ -75,6 +104,56 @@ export default function Login() {
               mx: { xs: 6, sm: 2, md: 1 },
             }}
           >
+            <Box
+              sx={{
+                display: 'flex',
+                backgroundColor: '#dc2626',
+                color: 'white',
+                padding: '1rem',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                borderRadius: '0.4rem',
+                height: '3.5rem',
+              }}
+            >
+              <Box
+                sx={{
+                  paddingLeft: '1rem',
+                  borderRight: '1px solid white',
+                  width: '4rem',
+                  height: '1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'left',
+                }}
+              >
+                <GoogleIcon />
+              </Box>
+              <Typography variant="h6" sx={{ paddingRight: '2rem' }}>
+                Entrar com o Google
+              </Typography>
+            </Box>
+            <Box
+              sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem' }}
+            >
+              <hr
+                style={{
+                  flexGrow: 1,
+                  margin: '0 10px',
+                  border: '0.5px solid #000',
+                  opacity: 0.5,
+                }}
+              />
+              <Typography variant="h6">Ou, entre com seu email</Typography>
+              <hr
+                style={{
+                  flexGrow: 1,
+                  margin: '0 10px',
+                  border: '0.5px solid #000',
+                  opacity: 0.5,
+                }}
+              />
+            </Box>
             <TextField
               margin="normal"
               required
@@ -95,11 +174,44 @@ export default function Login() {
               name="password"
               value={password}
               label="Senha"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password"
               autoComplete="current-password"
               onChange={handlePasswordChange}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleTogglePasswordVisibility}>
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
+
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
+            >
+              <Box>
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
+                  label="Manter Conectado"
+                />
+              </Box>
+              <Box>
+                <Link href="#" variant="body2">
+                  Esqueceu a Senha?
+                </Link>
+              </Box>
+            </Box>
             <Button
               type="submit"
               fullWidth
@@ -109,20 +221,18 @@ export default function Login() {
             >
               Entrar
             </Button>
-            {/* <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
-              <MuiLink
-                href="https://wa.me/message/RH3MIXPLWDZEN1"
-                underline="hover"
-              >
-                {'Cadastre-se'}
-              </MuiLink>
-            </Box> */}
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Link href="#" variant="body2">
+                {'Não tem uma conta? Inscrever-se'}
+              </Link>
+            </Box>
             {!isAuth && loginAttempted && (
               <Alert
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  marginTop: '1rem',
                 }}
                 severity="error"
               >
