@@ -7,7 +7,6 @@ import {
   Alert,
   Typography,
   Box,
-  Grid,
   Link,
   Button,
   Container,
@@ -54,6 +53,7 @@ export default function Login() {
     setLoginAttempted(true)
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
+      localStorage.setItem('isLogin', JSON.stringify({ email, password }));
       navigate('/Home')
     }
   }
@@ -156,7 +156,7 @@ export default function Login() {
               autoComplete="current-password"
               onChange={handlePasswordChange}
             />
-            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', paddingBottom: '2rem'}}>
+            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
               <Box>
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
@@ -189,6 +189,7 @@ export default function Login() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  marginTop: '1rem'
                 }}
                 severity="error"
               >
