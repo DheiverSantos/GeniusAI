@@ -156,7 +156,7 @@ export default function Login() {
               autoComplete="current-password"
               onChange={handlePasswordChange}
             />
-            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around', paddingBottom: '2rem'}}>
               <Box>
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
@@ -183,15 +183,6 @@ export default function Login() {
                 {"Não tem uma conta? Inscrever-se"}
               </Link>
             </Box>
-
-            {/* <Box sx={{ display: 'flex', justifyContent: 'center', mb: '1rem' }}>
-              <MuiLink
-                href="https://wa.me/message/RH3MIXPLWDZEN1"
-                underline="hover"
-              >
-                {'Cadastre-se'}
-              </MuiLink>
-            </Box> */}
             {!isAuth && loginAttempted && (
               <Alert
                 sx={{
