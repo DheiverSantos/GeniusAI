@@ -30,6 +30,12 @@ export default function MenuBar() {
     setAnchorEl(null)
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('isLogin');
+    localStorage.setItem('isAuthenticated', 'false');
+    navigate('/')
+  }
+
   return (
     <Box>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -107,7 +113,7 @@ export default function MenuBar() {
         </a>
 
         <Divider />
-        <MenuItem sx={{ color: '#1d4ed8' }} onClick={() => navigate('/')}>
+        <MenuItem sx={{ color: '#1d4ed8' }} onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" sx={{ color: '#1d4ed8' }} />
           </ListItemIcon>
