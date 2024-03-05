@@ -5,9 +5,8 @@ import { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import IconButton from '@mui/material/IconButton'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import { InputAdornment } from '@mui/material';
-import GoogleIcon from '@mui/icons-material/Google'
 import {
+  InputAdornment,
   Alert,
   Typography,
   Box,
@@ -21,6 +20,7 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material'
+import GoogleIcon from '@mui/icons-material/Google'
 import { isLoginFormValid, isValidEmail } from '../../utils/validateFormLogin'
 
 const theme = createTheme({
@@ -39,13 +39,13 @@ export default function Login() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const localStorageLogin = localStorage.getItem('isLogin');
+    const localStorageLogin = localStorage.getItem('dataLogin')
     if (localStorageLogin) {
-      const { email, password } = JSON.parse(localStorageLogin);
-      setEmail(email);
-      setPassword(password);
+      const { email, password } = JSON.parse(localStorageLogin)
+      setEmail(email)
+      setPassword(password)
     }
-  }, []);
+  }, [])
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
@@ -53,8 +53,8 @@ export default function Login() {
   }
 
   const handleTogglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
+    setShowPassword((prevShowPassword) => !prevShowPassword)
+  }
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
@@ -72,7 +72,7 @@ export default function Login() {
 
     if (authenticated) {
       localStorage.setItem('isAuthenticated', 'true') // auth provisoria
-      localStorage.setItem('isLogin', JSON.stringify({ email, password }));
+      localStorage.setItem('dataLogin', JSON.stringify({ email, password }))
 
       navigate('/Home')
 
@@ -174,7 +174,7 @@ export default function Login() {
               name="password"
               value={password}
               label="Senha"
-              type={showPassword ? 'text' : 'password'} 
+              type={showPassword ? 'text' : 'password'}
               id="password"
               autoComplete="current-password"
               onChange={handlePasswordChange}
@@ -182,14 +182,24 @@ export default function Login() {
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton onClick={handleTogglePasswordVisibility}>
-                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 ),
               }}
             />
-                
-            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
+            >
               <Box>
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
@@ -213,7 +223,7 @@ export default function Login() {
             </Button>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <Link href="#" variant="body2">
-                {"Não tem uma conta? Inscrever-se"}
+                {'Não tem uma conta? Inscrever-se'}
               </Link>
             </Box>
             {!isAuth && loginAttempted && (
@@ -222,7 +232,7 @@ export default function Login() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginTop: '1rem'
+                  marginTop: '1rem',
                 }}
                 severity="error"
               >
