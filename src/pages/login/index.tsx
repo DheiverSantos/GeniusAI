@@ -156,19 +156,19 @@ export default function Login() {
               autoComplete="current-password"
               onChange={handlePasswordChange}
             />
-            <Grid container sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
-              <Grid item>
+            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+              <Box>
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
                   label="Manter Conectado"
                 />
-              </Grid>
-              <Grid item xs>
+              </Box>
+              <Box>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Esqueceu a Senha?
                 </Link>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
             <Button
               type="submit"
               fullWidth
@@ -180,7 +180,7 @@ export default function Login() {
             </Button>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Não tem uma conta? Inscrever-se"}
               </Link>
             </Box>
 
