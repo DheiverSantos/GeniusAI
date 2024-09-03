@@ -223,7 +223,7 @@ export default function Login() {
             </Button>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <Link href="#" variant="body2">
-                {'Não tem uma conta? Inscrever-se'}
+                {'Não tem uma conta? Cadastre-se'}
               </Link>
             </Box>
             {!isAuth && loginAttempted && (
