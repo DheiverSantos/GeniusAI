@@ -222,8 +222,10 @@ export default function Login() {
               Entrar
             </Button>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+
               <Link component={RouterLink} to="/Register" variant="body2">
                 {'Não tem uma conta? Inscrever-se'}
+
               </Link>
             </Box>
             {!isAuth && loginAttempted && (
